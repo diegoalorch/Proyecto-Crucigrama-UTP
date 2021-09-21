@@ -23,32 +23,32 @@ if (isset($uriSplit[1]) && isset($uriSplit[2])) {
             if (method_exists(new menu_controller(), $metodo)) {
                 menu_controller::$metodo();
             } else {
-                question_controller::index();
+                menu_controller::index();
             }
             break;
-        case "niveles":
+        case "quiestion":
             /* pestaña de nivel */
             if (method_exists(new question_controller(), $metodo)) {
                 question_controller::$metodo();
             } else {
-                question_controller::index();
+                menu_controller::index();
             }
             break;
 
-        case "quiestion":
+        case "niveles":
             /* /dificultad de las preguntas */
             
             /* /id de la pregunta */
             if (method_exists(new nivel_controller(), $metodo)) {
                 nivel_controller::$metodo();
             } else {
-                question_controller::index();
+                menu_controller::index();
             }
             break;
         default:
-            question_controller::index();
+            menu_controller::index();
             break;
     }
 } else {
-    question_controller::index();
+    menu_controller::index();
 }

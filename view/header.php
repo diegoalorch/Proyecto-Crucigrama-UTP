@@ -18,3 +18,9 @@
     <link rel="apple-touch-icon" href="https://capilezza.com/wp-content/uploads/2021/04/cropped-Logotipo-03-1-180x180.png">
     <meta name="msapplication-TileImage" content="https://capilezza.com/wp-content/uploads/2021/04/cropped-Logotipo-03-1-270x270.png">
 </head>
+<script src="<?php echo $GLOBALS['BASE_URL'] ?>direccion.js"></script>
+
+<body>
+<div class="shadow-none p-3 mb-5 bg-light rounded" style="height: 100vh;padding-top: 20px;">
+    <div class="container shadow-lg p-3 mb-5 bg-white rounded" style="background-color:#C19A6B; height: 95vh; padding-top: 15px;border-radius: 30px;">
+        <div class="container shadow p-3 mb-5 bg-white rounded" style="width:80vw; height: 85vh;margin-top: 20px;border-radius: 20px;">
