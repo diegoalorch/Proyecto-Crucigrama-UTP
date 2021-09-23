@@ -204,10 +204,10 @@
 
   <div class="block2">
     <div class="men">
-      <img class="img_men" src="https://media.discordapp.net/attachments/783103048490156078/890456887034781707/perfil.jpg?width=492&height=492" alt="">
+      <img class="img_men" src="https://cdn.forbes.co/2020/09/Lionel-Messi-EFE-1280X720.jpg" alt="">
     </div>
     <div class="woman">
-      <img class="img_men" src="https://data.whicdn.com/images/312391198/original.jpg" alt="">
+      <img class="img_men" src="https://i1.wp.com/elpoli.pe/wp-content/uploads/2015/09/Nata1.jpg?fit=799%2C523&ssl=1" alt="">
     </div>
   </div>
 
