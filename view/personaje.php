@@ -204,10 +204,10 @@
 
   <div class="block2">
     <div class="men">
-      <img class="img_men" src="https://cdn.forbes.co/2020/09/Lionel-Messi-EFE-1280X720.jpg" alt="">
+      <img class="img_men" src="https://cdn.forbes.co/2020/09/Lionel-Messi-EFE-1280X720.jpg" onclick="location.href='<?php echo $GLOBALS['BASE_URL'] ?>quiestion'">
     </div>
     <div class="woman">
-      <img class="img_men" src="https://i1.wp.com/elpoli.pe/wp-content/uploads/2015/09/Nata1.jpg?fit=799%2C523&ssl=1" alt="">
+      <img class="img_men" src="https://i1.wp.com/elpoli.pe/wp-content/uploads/2015/09/Nata1.jpg?fit=799%2C523&ssl=1" onclick="location.href='<?php echo $GLOBALS['BASE_URL'] ?>quiestion'" >
     </div>
   </div>
 

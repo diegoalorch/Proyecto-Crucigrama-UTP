@@ -31,13 +31,12 @@ if (isset($uriSplit[1]) && isset($uriSplit[2])) {
             if (method_exists(new question_controller(), $metodo)) {
                 question_controller::$metodo();
             } else {
-                menu_controller::index();
+                question_controller::index();
             }
             break;
 
         case "niveles":
             /* /dificultad de las preguntas */
-            var_dump("asd");
             /* /id de la pregunta */
             if (method_exists(new nivel_controller(), $metodo)) {
                 nivel_controller::$metodo();
@@ -46,8 +45,8 @@ if (isset($uriSplit[1]) && isset($uriSplit[2])) {
             }
             break;
         default:
-            menu_controller::index();
-            break;
+        menu_controller::index();
+        break;
     }
 } else {
     $controlador = $uriSplit[1];
@@ -56,6 +55,10 @@ if (isset($uriSplit[1]) && isset($uriSplit[2])) {
             case "niveles":
                 /* /dificultad de las preguntas */
                 nivel_controller::nivel();
+                break;
+            case "quiestion":
+                /* /dificultad de las preguntas */
+                question_controller::index();
                 break;
             default:
                 menu_controller::index();
