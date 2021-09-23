@@ -22,31 +22,31 @@
   margin-top:1em;
   width: 100%;
   height: 13%;
-  float: left;
+  display:flex;
   box-shadow: 3px 3px 8px -1px #c1c1bd;
   border: 0.5px var(--border-color);
   border-radius: .5rem;
+
 }
 .block_name{
+  flex: 8;
   margin-top: 1em;
   margin-right: 1em;
   margin-left: 1em;
-  width: 60%;
   height: 50%;
-  float: left;
 }
 .block_select{
+  flex: 4;
   margin-top: 1em;
-  width: 34%;
+  margin-right:1em;
   height: 50%;
-  float: left;
   radius: .5rem;
 }
 
 /************************ Input text nickname  *****************/
 .form__div{
   position: relative;
-  height: 48px;
+  height: 6.5vh;
   margin-bottom: 1.5rem;
 }
 .form__input{
@@ -123,27 +123,35 @@
 }
 /********************** BLOCK 2 **************************/
 .block2{
+  /* background-color: green; */
+  display: flex;
   margin-top:0.5em;
+  padding:1em;
   width: 100%;
   height: 80%;
   float: left;
-}
-.men{
-  background-color:red;
-  height:100%;
-  width:49.5%;
-  float: left;
   border: 0.5 var(--first-color);
   border-radius: .5rem;
+  box-shadow: 3px 3px 8px -1px #c1c1bd;
+  justify-content: space-between;
 }
-.woman{
-  background-color:yellow;
+.men{
+  position:relative;
   height:100%;
   width:49.5%;
-  float: left;
+  
+  border: 0.5 var(--first-color);
+  border-radius: .5rem;
+  box-shadow: 3px 3px 8px -1px #c1c1bd;
+}
+.woman{
+  position:relative;
+  height:100%;
+  width:49.5%;
   margin-left:1%;
   border: 0.5 var(--first-color);
   border-radius: .5rem;
+  box-shadow: 3px 3px 8px -1px #c1c1bd;
 }
 
 /* Images */
@@ -153,19 +161,40 @@
   height:100%;
   border: 0.5 var(--first-color);
   border-radius: .5rem;
+  shadow: 10px 10px 101px;
+  transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition:all 0.5s ease;
+  overflow: hidden;
+  cursor: pointer;
 }
+
+.img_men:hover {
+  backface-visibility: hidden;
+  transform:scale(1.15,1.15);
+  opacity: 1;
+  padding: 3px;
+  width:98%;
+  height:98%;
+}
+
+@media screen and (max-width:600px){
+  .block1{
+    flex-direction:column;
+  }
+} 
 </style>
 <div class="container">
   <div class="block1">
     <div class="block_name">
       <div class="form__div">
           <input type="text" class="form__input" placeholder=" ">
-          <label for="" class="form__label">Nickname</label>
+          <label for="" class="form__label">Apodo</label>
       </div>
     </div>
     <div class="block_select">
       <select class="form-control select" id="inputGroupSelect01">
-          <option selected>Dificultad</option>
+          <option selected>Seleccione la dificultad</option>
           <option value="1">Facil</option>
           <option value="2">Normal</option>
           <option value="3">Dificil</option>
@@ -175,9 +204,11 @@
 
   <div class="block2">
     <div class="men">
-      <img class="img_men" src="https://w7.pngwing.com/pngs/744/581/png-transparent-heroclix-apocalypse-horrorclix-giant-size-x-men-mystique-game-fictional-characters-comic-book.png" alt="">
+      <img class="img_men" src="https://media.discordapp.net/attachments/783103048490156078/890456887034781707/perfil.jpg?width=492&height=492" alt="">
     </div>
-    <div class="woman">WOMAN</div>
+    <div class="woman">
+      <img class="img_men" src="https://data.whicdn.com/images/312391198/original.jpg" alt="">
+    </div>
   </div>
 
 </div>
