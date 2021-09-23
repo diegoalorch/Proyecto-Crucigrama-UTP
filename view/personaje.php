@@ -15,15 +15,17 @@
 }
 .container {
   height: 100%;
-  width: : 100;
+  width: : 100%;
 }
-/* Containers BLOCK 1*/
+/*******************  CONTAINER BLOCK 1 *****************/
 .block1{
   margin-top:1em;
   width: 100%;
-  height: 20%;
-
+  height: 13%;
   float: left;
+  box-shadow: 3px 3px 8px -1px #c1c1bd;
+  border: 0.5px var(--border-color);
+  border-radius: .5rem;
 }
 .block_name{
   margin-top: 1em;
@@ -35,9 +37,10 @@
 }
 .block_select{
   margin-top: 1em;
-  width: 28%;
+  width: 34%;
   height: 50%;
   float: left;
+  radius: .5rem;
 }
 
 /************************ Input text nickname  *****************/
@@ -112,10 +115,44 @@
 }
 
 
-/********************************select ***************/
+/*Select*/
 .select{
   width: 100%;
   height: 48px;
+  border-radius: .5rem;
+}
+/********************** BLOCK 2 **************************/
+.block2{
+  margin-top:0.5em;
+  width: 100%;
+  height: 80%;
+  float: left;
+}
+.men{
+  background-color:red;
+  height:100%;
+  width:49.5%;
+  float: left;
+  border: 0.5 var(--first-color);
+  border-radius: .5rem;
+}
+.woman{
+  background-color:yellow;
+  height:100%;
+  width:49.5%;
+  float: left;
+  margin-left:1%;
+  border: 0.5 var(--first-color);
+  border-radius: .5rem;
+}
+
+/* Images */
+.img_men{
+  display: block;
+  width:100%;
+  height:100%;
+  border: 0.5 var(--first-color);
+  border-radius: .5rem;
 }
 </style>
 <div class="container">
@@ -135,6 +172,14 @@
       </select>  
     </div>
   </div>
+
+  <div class="block2">
+    <div class="men">
+      <img class="img_men" src="https://w7.pngwing.com/pngs/744/581/png-transparent-heroclix-apocalypse-horrorclix-giant-size-x-men-mystique-game-fictional-characters-comic-book.png" alt="">
+    </div>
+    <div class="woman">WOMAN</div>
+  </div>
+
 </div>
 
 
