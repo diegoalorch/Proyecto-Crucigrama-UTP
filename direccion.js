@@ -1,1 +1,1 @@
-var url = 'http://capilezzaencuesta.test/';
+var url = 'http://proyecto_utp.test/';

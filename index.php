@@ -37,12 +37,12 @@ if (isset($uriSplit[1]) && isset($uriSplit[2])) {
 
         case "niveles":
             /* /dificultad de las preguntas */
-            
+            var_dump("asd");
             /* /id de la pregunta */
             if (method_exists(new nivel_controller(), $metodo)) {
                 nivel_controller::$metodo();
             } else {
-                menu_controller::index();
+                nivel_controller::nivel();
             }
             break;
         default:
@@ -50,5 +50,16 @@ if (isset($uriSplit[1]) && isset($uriSplit[2])) {
             break;
     }
 } else {
-    menu_controller::index();
+    $controlador = $uriSplit[1];
+    if (isset($uriSplit[1])) {
+        switch ($controlador) {
+            case "niveles":
+                /* /dificultad de las preguntas */
+                nivel_controller::nivel();
+                break;
+            default:
+                menu_controller::index();
+                break;
+        }
+    }
 }

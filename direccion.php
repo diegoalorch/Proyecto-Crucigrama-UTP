@@ -1,4 +1,4 @@
 <?php
-   $GLOBALS['BASE_URL'] = 'http://capilezzaencuesta.test/';
+   $GLOBALS['BASE_URL'] = 'http://proyecto_utp.test/';
    
 ?>
