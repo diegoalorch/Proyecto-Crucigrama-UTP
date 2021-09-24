@@ -1,17 +1,126 @@
 <?php require "view/header.php"; ?>
+<style>
+    .contenedor {
+        width: 500px;
+        height: 200px;
+        background-color: blueviolet;
+        margin: 50px;
+    }
 
-<script src="<?php echo $GLOBALS['BASE_URL'] ?>direccion.js"></script>
+    .letra {
+        width: 50px;
+        height: 50px;
+        font-size: .8rem;
+        text-align: center;
+        border-radius: 10px;
+        text-transform: uppercase;
+    }
 
-<body>
-    <h1>question at work!</h1>
-</body>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    #letras__contenedor {
+
+        display: grid;
+        gap: 3px;
+        grid-template-columns: repeat(8, 1fr);
+        margin-top: 10px;
+    }
+
+    .placeholder {
+        width: 50px;
+        height: 50px;
+        background-color: limegreen;
+        transition: 1s;
+    }
+
+    #medio {
+        background-color: orchid !important;
+        display: flex;
+        width: 100%;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .hover {
+        background: orange;
+    }
+</style>
+<div class="superior">
+    <div class="contenedor">
+
+    </div>
+</div>
+<div id="medio">
+</div>
+<div id="letras__contenedor">
+</div>
+<script>
+    const letras_respuestas = ['d', 'i', 's', 't', 'a', 'n', 'c', 'i', 'a']
+    const letras_abecedario = [...letras_respuestas,'a', 'b', 'c', 'd', 'e', 'f']
+    const contenedor = document.querySelector('.contenedor');
+    const medio = document.querySelector('#medio');
+    const letras__contenedor = document.querySelector('#letras__contenedor');
+    let terminado = letras_respuestas.length;
+    var letter_id=0;
+    while (letras_abecedario.length) {
+        const index = Math.floor(Math.random() * letras_abecedario.length);
+        const div = document.createElement('div');
+        div.className = 'letra shadow p-1 mb-5 bg-white rounded';
+        div.id = letter_id;
+        div.draggable = true
+        div.innerHTML = ("<h3>" + letras_abecedario[index] + "</h3>")
+        letras__contenedor.appendChild(div)
+        letras_abecedario.splice(index, 1);
+        letter_id++
+    }
+    console.log(medio);
+    for (let index = 0; index < terminado; index++) {
+        const div = document.createElement('div');
+        div.className = 'placeholder ';
+        div.dataset.id = index;
+        medio.appendChild(div);
+    }
+    letras__contenedor.addEventListener('dragstart', e =>{
+        
+        e.dataTransfer.setData('id',e.target.id)
+    })
+    medio.addEventListener('dragover', e => {
+        e.preventDefault();
+        e.target.classList.add('hover');
+    })
+    medio.addEventListener('dragleave', e => {
+        e.target.classList.remove('hover');
+    })
+    medio.addEventListener('drop', e => {
+        const id = e.dataTransfer.getData('id')
+        e.target.classList.remove('hover');
+        e.target.appendChild(document.getElementById(id))
+        terminado--
+        if (terminado===0) {
+            alert("aca ira un validador")
+        }
+
+    })
+
+    /*letra.addEventListener('dragstart', e=>{
+        console.log("me empiezan a mover")
+    })
+    letra.addEventListener('dragend', e=>{
+        console.log("me dejaron de mover")
+    })
+    letra.addEventListener('drag', e=>{
+        console.log("me estan moviendo")
+    }) */
+    /* contenedor.addEventListener('dragenter', e=>{
+        console.log("me empiezan a mover")
+    })
+    contenedor.addEventListener('dragleave', e=>{
+        console.log("me empiezan a mover")
+    })
+    contenedor.addEventListener('dragover', e=>{
+        e.preventDefault();
+    })
+    contenedor.addEventListener('drop', e=>{
+        console.log("me empiezan a mover")
+        contenedor.appendChild(letra);
+    }) */
 </script>
-<script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
-</script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous">
-</script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-<script src="<?php echo $GLOBALS['BASE_URL'] ?>publico/js/web/register.js"></script>
-<script src="<?php echo $GLOBALS['BASE_URL'] ?>publico/js/web/claim_steps.js"></script>
+<?php require "view/footer.php"; ?>
