@@ -7,7 +7,7 @@ class question_controller
     }
     public static function json()
     {
-        $Variable="Hola yo soy ";
+        $data=json_decode(file_get_contents("question.json"),true);
         include_once "view/json.php";
     }
 
