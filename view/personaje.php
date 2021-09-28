@@ -317,14 +317,14 @@ span:nth-child(4){
       <span></span>
       <span></span>
       <span></span>
-      <div class="img1"></div>
+      <div class="img1" onclick="location.href='<?php echo $GLOBALS['BASE_URL'] ?>quiestion'"></div>
     </div>
     <div class="block2_img">
       <span></span>
       <span></span>
       <span></span>
       <span></span>
-      <div class="img2"></div>
+      <div class="img2" onclick="location.href='<?php echo $GLOBALS['BASE_URL'] ?>quiestion'"></div>
     </div>
   </div>
 
