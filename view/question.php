@@ -1,10 +1,38 @@
 <?php require "view/header.php"; ?>
 <style>
+    .item {
+        position: relative;
+        float: left;
+    }
+
+    .item h2 {
+        text-align: center;
+        position: absolute;
+        line-height: 125px;
+        width: 100%;
+    }
+
+    svg {
+        -webkit-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+
+    .circle_animation {
+        stroke-dasharray: 440;
+        /* this value is the pixel circumference of the circle */
+        stroke-dashoffset: 440;
+        transition: all 1s linear;
+    }
+
     .contenedor {
         width: 500px;
         height: 200px;
         background-color: blueviolet;
         margin: 50px;
+    }
+
+    .superior {
+        display: flex;
     }
 
     .letra {
@@ -18,9 +46,10 @@
 
     #letras__contenedor {
 
-        display: grid;
-        gap: 3px;
-        grid-template-columns: repeat(8, 1fr);
+        display: flex;
+        gap: 27px;
+        justify-content: center;
+        flex-wrap: wrap;
         margin-top: 10px;
     }
 
@@ -42,45 +71,156 @@
     .hover {
         background: orange;
     }
+
+    .pointter {
+        cursor: pointer;
+    }
+
+    .opaco {
+        opacity: 0%;
+    }
 </style>
 <div class="superior">
-    <div class="contenedor">
+    <div class="contenedor container shadow p-3 mb-5 bg-white rounded">
+        La __________________ es el espacio, considerado desde una perspectiva lineal, entre una persona o cosa y otra.
+    </div>
 
+    <div class="item html">
+        <h2>30</h2>
+        <svg width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+            <g>
+                <title>Layer 1</title>
+                <circle id="circle" class="circle_animation" r="69.85699" cy="81" cx="81" stroke-width="8" stroke="#6fdb6f" fill="none" />
+            </g>
+        </svg>
     </div>
 </div>
 <div id="medio">
 </div>
 <div id="letras__contenedor">
 </div>
+
+<div class="modal fade bd-example-modal-lg" id="modalWin" tabindex="-1" role="dialog" aria-labelledby="modalWinLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalWinLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row" style="flex-wrap: nowrap !important;">
+                    <img width="50%" src="<?php echo $GLOBALS['BASE_URL'] ?>publico/img/img/first_charcter_B.jpg" alt="" srcset="">
+                    <h3>Mejor suerte para la proxima</h3>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" onclick="location.reload()" class="btn btn-secondary" data-dismiss="modal">Reintentar</button>
+                <button type="button" onclick="location.reload()" class="btn btn-primary">Continuar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade bd-example-modal-lg" id="modalLost" tabindex="-1" role="dialog" aria-labelledby="modalLostLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalLostLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row" style="flex-wrap: nowrap !important;">
+                    <img width="50%" src="<?php echo $GLOBALS['BASE_URL'] ?>publico/img/img/first_character.png" alt="" srcset="">
+                    <h3>Increible respuesta correta</h3>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" onclick="location.reload()" class="btn btn-secondary" data-dismiss="modal">Continuar</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>
+    function ShowModal(gano) {
+        if (!gano) {
+            console.log("1")
+            $('#modalWin').modal('show')
+        } else {
+            console.log("2")
+            $('#modalLost').modal('show')
+        }
+    }
     const letras_respuestas = ['d', 'i', 's', 't', 'a', 'n', 'c', 'i', 'a']
-    const letras_abecedario = [...letras_respuestas,'a', 'b', 'c', 'd', 'e', 'f']
+    const letras_abecedario = [...letras_respuestas, 'z', 'x', 'v', 'g', 'h', 'k']
     const contenedor = document.querySelector('.contenedor');
     const medio = document.querySelector('#medio');
     const letras__contenedor = document.querySelector('#letras__contenedor');
     let terminado = letras_respuestas.length;
-    var letter_id=0;
+    var letter_id = 0;
     while (letras_abecedario.length) {
         const index = Math.floor(Math.random() * letras_abecedario.length);
         const div = document.createElement('div');
-        div.className = 'letra shadow p-1 mb-5 bg-white rounded';
+        div.className = 'letra shadow p-1 bg-white rounded pointter';
         div.id = letter_id;
-        div.draggable = true
         div.innerHTML = ("<h3>" + letras_abecedario[index] + "</h3>")
         letras__contenedor.appendChild(div)
         letras_abecedario.splice(index, 1);
+        $(".pointter").on("click", function(event) {
+            console.log(event.target.textContent)
+            if (validarArray(event.target.textContent)) {
+                $(this).remove();
+                document.querySelector("." + event.target.textContent).className = "letra shadow p-1 bg-white rounded"
+                validarRespuesta();
+            }
+            /* else{
+                            alert("Esta letra no se encuentra en la palabra")
+                        } */
+
+            event.preventDefault();
+        });
         letter_id++
     }
     console.log(medio);
     for (let index = 0; index < terminado; index++) {
         const div = document.createElement('div');
         div.className = 'placeholder ';
-        div.dataset.id = index;
+        div.id = index;
+        const letraopacada = document.createElement('div');
+        letraopacada.className = 'letra shadow p-1 bg-white rounded opaco ' + letras_respuestas[index];
+        letraopacada.innerHTML = ("<h3>" + letras_respuestas[index] + "</h3>")
+        div.appendChild(letraopacada)
+        //letras_respuestas.splice(index, 1);
         medio.appendChild(div);
     }
-    letras__contenedor.addEventListener('dragstart', e =>{
-        
-        e.dataTransfer.setData('id',e.target.id)
+
+    function validarArray(letra) {
+        var encontrado = false;
+        for (let i = 0; i < letras_respuestas.length; i++) {
+            const comparador = letras_respuestas[i];
+            if (comparador == letra) {
+                encontrado = true
+            }
+        }
+        return encontrado;
+
+    }
+
+    function validarRespuesta() {
+        const completado = document.getElementsByClassName("opaco");
+        if (completado.length == 0) {
+            ShowModal(true)
+            //console.log("se acabaron manooooooooo");
+            //console.log($("#medio").text());
+        }
+    }
+    /* letras__contenedor.addEventListener('dragstart', e => {
+
+        e.dataTransfer.setData('id', e.target.id)
     })
     medio.addEventListener('dragover', e => {
         e.preventDefault();
@@ -92,35 +232,43 @@
     medio.addEventListener('drop', e => {
         const id = e.dataTransfer.getData('id')
         e.target.classList.remove('hover');
-        e.target.appendChild(document.getElementById(id))
-        terminado--
-        if (terminado===0) {
-            alert("aca ira un validador")
+        if (!e.target.textContent) {
+            e.target.appendChild(document.getElementById(id))
+            terminado--
+        }
+        if (terminado === 0) {
+            let contenedor = document.getElementsByClassName('placeholder');
+            let answord = "";
+            for (let i = 0; i < contenedor.length; i++) {
+                const element = contenedor[i];
+                answord += element.textContent
+            }
+
+            ShowModal(answord == "distancia")
+
         }
 
-    })
+    }) */
+    setTimeout(function() {
 
-    /*letra.addEventListener('dragstart', e=>{
-        console.log("me empiezan a mover")
-    })
-    letra.addEventListener('dragend', e=>{
-        console.log("me dejaron de mover")
-    })
-    letra.addEventListener('drag', e=>{
-        console.log("me estan moviendo")
-    }) */
-    /* contenedor.addEventListener('dragenter', e=>{
-        console.log("me empiezan a mover")
-    })
-    contenedor.addEventListener('dragleave', e=>{
-        console.log("me empiezan a mover")
-    })
-    contenedor.addEventListener('dragover', e=>{
-        e.preventDefault();
-    })
-    contenedor.addEventListener('drop', e=>{
-        console.log("me empiezan a mover")
-        contenedor.appendChild(letra);
-    }) */
+        var time = 30; /* how long the timer will run (seconds) */
+        var initialOffset = '440';
+        var i = 30
+
+        /* Need initial run as interval hasn't yet occured... */
+        $('.circle_animation').css('stroke-dashoffset', initialOffset - (1 * (initialOffset / time)));
+
+        var interval = setInterval(function() {
+            $('h2').text(i);
+            if (i == 0) {
+                clearInterval(interval);
+                alert("se acabo el tiempo")
+                return;
+            }
+            $('.circle_animation').css('stroke-dashoffset', initialOffset - ((i + 1) * (initialOffset / time)));
+            i--;
+        }, 1000);
+
+    }, 0)
 </script>
 <?php require "view/footer.php"; ?>
