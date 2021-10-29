@@ -1,73 +1,262 @@
 {
-    "Facil": [{
-            "id": 0,
-            "question": "que es oro y plata no es",
-            "answer": "platano",
-            "tipoPregunta": "2",
-            "imagen": "sadausdas"
-        },
-        {
-            "id": 1,
-            "question": "que le di ce una pulga aun calvo",
-            "answer": "No te agaches que me caigo",
-            "tipoPregunta": "2",
-            "imagen": "sadausdas"
-        },
-        {
-            "id": 2,
-            "question": "que es oro y plata no es",
-            "answer": "platano",
-            "tipoPregunta": "2",
-            "imagen": "sadausdas"
-        },
-        {
-            "id": 3,
-            "question": "que le di ce una pulga aun calvo",
-            "answer": "hola",
-            "tipoPregunta": "1",
-            "imagen": "sadausdas"
-        }
+  "Facil":[
+    {
+    "id": 0,
+    "question": "Respecto a las magnitudes vectoriales",
+    "imagen": "sadausdas",
+    "answer": [
+      {      
+        "option": "Requiere solo del valor numérico y unidad de medida",
+        "iscorrect":true
+      },
+      {      
+        "option": "La fuerza es una magnitud vectorial",
+        "iscorrect":false
+      },
+      {      
+        "option": "Se representan con vectores",
+        "iscorrect":false
+      },
+      {      
+        "option": "Es necesario indicar la dirección",
+        "iscorrect":false
+      }
     ],
-    "Normal": [{
-            "id": 0,
-            "question": "que es oro y plata no es",
-            "answer": "platano"
-        },
-        {
-            "id": 1,
-            "question": "que le di ce una pulga aun calvo",
-            "answer": "No te agaches que me caigo"
-        },
-        {
-            "id": 2,
-            "question": "que es oro y plata no es",
-            "answer": "platano"
-        },
-        {
-            "id": 3,
-            "question": "que le di ce una pulga aun calvo",
-            "answer": "No te agaches que me caigo"
-        }
+    "tipoPregunta": "2"
+    },
+    {
+    "id": 1,
+    "question": "Del siguiente listado identifique la pareja de magnitudes escalares:",
+    "imagen": "sadausdas",
+    "answer": [
+      {      
+        "option": "fuerza, masa",
+        "iscorrect":false
+      },
+      {      
+        "option": "velocidad, masa",
+        "iscorrect":false
+      },
+      {      
+        "option": "masa, tiempo",
+        "iscorrect":true
+      },
+      {      
+        "option": "densidad, fuerza",
+        "iscorrect":false
+      }
     ],
-    "Dificil": [{
-            "id": 0,
-            "question": "que es oro y plata no es",
-            "answer": "platano"
-        },
-        {
-            "id": 1,
-            "question": "que le di ce una pulga aun calvo",
-            "answer": "No te agaches que me caigo"
-        },
-        {
-            "id": 2,
-            "question": "que es oro y plata no es",
-            "answer": "platano"
-        },
-        {
-            "id": 3,
-            "question": "que le di ce una pulga aun calvo",
-            "answer": "No te agaches que me caigo"
-        }
-    ]
+    "tipoPregunta": "2"
+    },
+    {
+    "id": 2,
+    "question": "De las siguientes magnitudes físicas ¿Cuál no es fundamental en el SI?",
+    "imagen": "sadausdas",
+    "answer": [
+      {      
+        "option": "Masa",
+        "iscorrect":false
+      },
+      {      
+        "option": "Intensidad luminosa",
+        "iscorrect":false
+      },
+      {      
+        "option": "Temperatura",
+        "iscorrect":false
+      },
+      {      
+        "option": "Carga eléctrica",
+        "iscorrect":true
+      }
+    ],
+    "tipoPregunta": "2"
+    },
+    {
+    "id": 3,
+    "question": "La __________________ es el espacio, considerado desde una perspectiva lineal, entre una persona o cosa y otra:",
+    "imagen": "sadausdas",
+    "answer": "distancia",
+    "tipoPregunta": "1"
+    },
+    {
+    "id": 4,
+    "question": "Un objeto parte del reposo,  con una aceleración constante de módulo 15 m/s². Esto significa que el objeto:",
+    "imagen": "sadausdas",
+    "answer": [
+      {      
+        "option": "Se mueve 15 metros cada segundo",
+        "iscorrect":false
+      },
+      {      
+        "option": "Aumenta su rapidez en 15 m/s cada segundo",
+        "iscorrect":true
+      },
+      {      
+        "option": "Disminuye su rapidez en 15 m/s cada segundo",
+        "iscorrect":false
+      },
+      {      
+        "option": "Es un movimiento desacelerado",
+        "iscorrect":false
+      }
+    ],
+    "tipoPregunta": "2"
+    },
+    {
+    "id":5,
+    "question": "La dirección de un vector está determinada por:",
+    "imagen": "sadausdas",
+    "answer": [
+      {      
+        "option": "El ángulo de inclinación respecto al eje “X”",
+        "iscorrect":false
+      },
+      {      
+        "option": "El modulo del vector",
+        "iscorrect":true
+      },
+      {      
+        "option": "El origen y el modulo del vector ",
+        "iscorrect":false
+      }
+    ],
+    "tipoPregunta": "2"
+    },
+    {
+    "id":6,
+    "question": "El movimiento de un proyectil, sin considerar la resistencia del aire, es una composición de:",
+    "imagen": "sadausdas",
+    "answer": [
+      {      
+        "option": "MRUV + MRUV",
+        "iscorrect":false
+      },
+      {      
+        "option": "MRU + MRUV",
+        "iscorrect":true
+      },
+      {      
+        "option": "MRU + MRU",
+        "iscorrect":false
+      }
+    ],
+    "tipoPregunta": "2"
+    },
+    {
+    "id":7,
+    "question": "Sobre un cuerpo actúan tres fuerzas no paralelas, para que el cuerpo esté en equilibrio estas fuerzas deben ser:",
+    "imagen": "sadausdas",
+    "answer": [
+      {      
+        "option": "Coplanares y concurrentes",
+        "iscorrect":true
+      },
+      {      
+        "option": "No concurrentes",
+        "iscorrect":false
+      },
+      {      
+        "option": "Concurrentes",
+        "iscorrect":false
+      },
+      {      
+        "option": "Coplanares",
+        "iscorrect":false
+      }
+    ],
+    "tipoPregunta": "2"
+    },
+    {
+    "id":8,
+    "question": "Cuando se cumple que: fs=μsn",
+    "imagen": "sadausdas",
+    "answer": [
+      {      
+        "option": "Cuando el deslizamiento es inminente",
+        "iscorrect":true
+      },
+      {      
+        "option": "Cuando hay deslizamiento",
+        "iscorrect":false
+      }
+    ],
+    "tipoPregunta": "2"
+    },
+    {
+    "id":9,
+    "question": "Cuando se cumple que: fs=μsn",
+    "imagen": "sadausdas",
+    "answer": [
+      {      
+        "option": "Px=40cos20°; Py=40cos20°",
+        "iscorrect":false
+      },
+      {      
+        "option": "Px=40sin20°; Py=40sin20°",
+        "iscorrect":false
+      },
+      {      
+        "option": "Px=40cos20°; Py=40sin20°",
+        "iscorrect":true
+      },
+      {      
+        "option": "Px=40sin20°; Py=40cos20°",
+        "iscorrect":false
+      }
+    ],
+    "tipoPregunta": "2"
+    },
+    {
+      "id": 10,
+      "question": "Testeando cuando escribes",
+      "imagen": "sadausdas",
+      "answer": "Yo soy la respuesta",
+      "tipoPregunta": "3"
+    }
+  ],
+  "Normal": [
+    {
+    "id": 0,
+    "question": "que es oro y plata no es",
+    "answer": "platano"
+    },
+    {
+    "id": 1,
+    "question": "que le di ce una pulga aun calvo",
+    "answer": "No te agaches que me caigo"
+    },
+    {
+    "id": 2,
+    "question": "que es oro y plata no es",
+    "answer": "platano"
+    },
+    {
+    "id": 3,
+    "question": "que le di ce una pulga aun calvo",
+    "answer": "No te agaches que me caigo"
+    }
+  ],
+  "Dificil": [
+    {
+    "id": 0,
+    "question": "que es oro y plata no es",
+    "answer": "platano"
+    },
+    {
+    "id": 1,
+    "question": "que le di ce una pulga aun calvo",
+    "answer": "No te agaches que me caigo"
+    },
+    {
+    "id": 2,
+    "question": "que es oro y plata no es",
+    "answer": "platano"
+    },
+    {
+    "id": 3,
+    "question": "que le di ce una pulga aun calvo",
+    "answer": "No te agaches que me caigo"
+    }
+  ]
 }

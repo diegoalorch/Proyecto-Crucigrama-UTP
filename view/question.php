@@ -79,11 +79,30 @@
     .opaco {
         opacity: 0%;
     }
+
+    .divs{
+        width: 400px;
+        height: auto;
+        font-size: 2rem;
+        text-align: center;
+        display: inline-block;
+        margin: 20px;
+        font-weight: bold;
+        padding: 10px 0 10px 0;
+        background-color: lightgray;
+        text-shadow: -1px -1px black, 1px 1px white;
+        color: gray;
+        -webkit-border-radius: 7px;
+        -moz-border-radius: 7px;
+        -o-border-radius: 7px;
+        border-radius: 7px;
+        box-shadow: 0 .2em gray;
+        cursor: pointer;
+    }
 </style>
 <div class="superior">
 
-    <div class="contenedor container shadow p-3 mb-5 bg-white rounded">
-        La __________________ es el espacio, considerado desde una perspectiva lineal, entre una persona o cosa y otra.
+    <div class="contenedor container shadow p-3 mb-5 bg-white rounded" id="question">
     </div>
 
     <div class="item html">
@@ -100,7 +119,8 @@
 </div>
 <div id="letras__contenedor">
 </div>
-
+<div id="answer_container"></div>
+<div id="writing_container"></div>
 <div class="modal fade bd-example-modal-lg" id="modalWin" tabindex="-1" role="dialog" aria-labelledby="modalWinLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -163,6 +183,8 @@
     var completado;
     function iniciarJuego(result) {
         console.log(result)
+        const question = document.querySelector('#question');
+        question.innerHTML = (result.question)
         if (result.tipoPregunta == 1) {
             //cricigrama
             console.log(result)
@@ -219,23 +241,61 @@
             const contenedor = document.querySelector('.contenedor');
             const medio = document.querySelector('#medio');
             const letras__contenedor = document.querySelector('#letras__contenedor');
-            const div = document.createElement('div');
-            div.innerHTML = ("<h3> at Work </h3>")
+            
+            loopDivs(result.answer);
             //letras_respuestas.splice(index, 1);
-            medio.appendChild(div);
+            // medio.appendChild(div);
         } else {
             //responder con cuadro de texto
+            console.log('hola')
             const contenedor = document.querySelector('.contenedor');
-
             const medio = document.querySelector('#medio');
             const letras__contenedor = document.querySelector('#letras__contenedor');
             const div = document.createElement('div');
             div.innerHTML = ("<h3> at Work </h3>")
+            write_answer();
             //letras_respuestas.splice(index, 1);
+            // Writing answer
+
+
             medio.appendChild(div);
         }
 
     }
+
+    /*Start Options*/
+    function loopDivs(result2){
+        for (let i = 0; i < result2.length; i++) {
+            addDivs(result2[i]);  
+        }
+    }
+
+    function addDivs(nameDiv){
+        let divNew = document.createElement('div');
+        divNew.classList.add('divs');
+        divNew.innerHTML = nameDiv.option;
+        divNew.addEventListener('click',function(){
+            if (nameDiv.iscorrect == true) {
+                alert("Lo lograste rick");
+                ShowModal(true);
+            } else {    
+                ShowModal(false);
+                alert("A comprar otro morthy");
+            }
+        })
+        
+        document.getElementById('answer_container').appendChild(divNew);
+    }
+    /*End Options*/
+    
+    /*Start Write Answer*/
+    
+    function write_answer(){
+        const writing = document.createElement('input');
+        document.getElementById('writing_container').appendChild(writing);
+    }
+
+    /*End Write Answer*/
 
     function borrarArray() {
         var ids = localStorage.getItem("ids")
@@ -350,5 +410,7 @@
         }, 1000);
 
     }, 0)
+
+
 </script>
 <?php require "view/footer.php"; ?>

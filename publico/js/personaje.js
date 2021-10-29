@@ -12,7 +12,7 @@ function validar(character) {
         localStorage.setItem("ids", ids)
         console.log(localStorage.getItem("ids"))
         alert("Nickname validado y el select");
-        location.href = 'http://proyecto_utp.test/quiestion';
+        location.href = 'http://localhost/quiestion';
     } else {
         alert("Ingrese su apodo y/o seleccione una dificultad");
     }
