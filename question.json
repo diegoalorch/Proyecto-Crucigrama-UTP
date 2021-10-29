@@ -1,68 +1,73 @@
 {
-  "Facil":[
-    {
-    "id": 0,
-    "question": "que es oro y plata no es",
-    "answer": "platano"
-    },
-    {
-    "id": 1,
-    "question": "que le di ce una pulga aun calvo",
-    "answer": "No te agaches que me caigo"
-    },
-    {
-    "id": 2,
-    "question": "que es oro y plata no es",
-    "answer": "platano"
-    },
-    {
-    "id": 3,
-    "question": "que le di ce una pulga aun calvo",
-    "answer": "No te agaches que me caigo"
-    }
-  ],
-  "Normal": [
-    {
-    "id": 0,
-    "question": "que es oro y plata no es",
-    "answer": "platano"
-    },
-    {
-    "id": 1,
-    "question": "que le di ce una pulga aun calvo",
-    "answer": "No te agaches que me caigo"
-    },
-    {
-    "id": 2,
-    "question": "que es oro y plata no es",
-    "answer": "platano"
-    },
-    {
-    "id": 3,
-    "question": "que le di ce una pulga aun calvo",
-    "answer": "No te agaches que me caigo"
-    }
-  ],
-  "Dificil": [
-    {
-    "id": 0,
-    "question": "que es oro y plata no es",
-    "answer": "platano"
-    },
-    {
-    "id": 1,
-    "question": "que le di ce una pulga aun calvo",
-    "answer": "No te agaches que me caigo"
-    },
-    {
-    "id": 2,
-    "question": "que es oro y plata no es",
-    "answer": "platano"
-    },
-    {
-    "id": 3,
-    "question": "que le di ce una pulga aun calvo",
-    "answer": "No te agaches que me caigo"
-    }
-  ]
+    "Facil": [{
+            "id": 0,
+            "question": "que es oro y plata no es",
+            "answer": "platano",
+            "tipoPregunta": "2",
+            "imagen": "sadausdas"
+        },
+        {
+            "id": 1,
+            "question": "que le di ce una pulga aun calvo",
+            "answer": "No te agaches que me caigo",
+            "tipoPregunta": "2",
+            "imagen": "sadausdas"
+        },
+        {
+            "id": 2,
+            "question": "que es oro y plata no es",
+            "answer": "platano",
+            "tipoPregunta": "2",
+            "imagen": "sadausdas"
+        },
+        {
+            "id": 3,
+            "question": "que le di ce una pulga aun calvo",
+            "answer": "hola",
+            "tipoPregunta": "1",
+            "imagen": "sadausdas"
+        }
+    ],
+    "Normal": [{
+            "id": 0,
+            "question": "que es oro y plata no es",
+            "answer": "platano"
+        },
+        {
+            "id": 1,
+            "question": "que le di ce una pulga aun calvo",
+            "answer": "No te agaches que me caigo"
+        },
+        {
+            "id": 2,
+            "question": "que es oro y plata no es",
+            "answer": "platano"
+        },
+        {
+            "id": 3,
+            "question": "que le di ce una pulga aun calvo",
+            "answer": "No te agaches que me caigo"
+        }
+    ],
+    "Dificil": [{
+            "id": 0,
+            "question": "que es oro y plata no es",
+            "answer": "platano"
+        },
+        {
+            "id": 1,
+            "question": "que le di ce una pulga aun calvo",
+            "answer": "No te agaches que me caigo"
+        },
+        {
+            "id": 2,
+            "question": "que es oro y plata no es",
+            "answer": "platano"
+        },
+        {
+            "id": 3,
+            "question": "que le di ce una pulga aun calvo",
+            "answer": "No te agaches que me caigo"
+        }
+    ]
 }

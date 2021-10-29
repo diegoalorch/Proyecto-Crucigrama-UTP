@@ -81,6 +81,7 @@
     }
 </style>
 <div class="superior">
+
     <div class="contenedor container shadow p-3 mb-5 bg-white rounded">
         La __________________ es el espacio, considerado desde una perspectiva lineal, entre una persona o cosa y otra.
     </div>
@@ -124,6 +125,7 @@
 </div>
 <div class="modal fade bd-example-modal-lg" id="modalLost" tabindex="-1" role="dialog" aria-labelledby="modalLostLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
+
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="modalLostLabel">Modal title</h5>
@@ -138,12 +140,14 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" onclick="location.reload()" class="btn btn-secondary" data-dismiss="modal">Continuar</button>
+                <button type="button" onclick="borrarArray();location.reload()" class="btn btn-secondary" data-dismiss="modal">Continuar</button>
 
             </div>
         </div>
     </div>
+
 </div>
+<button onclick="borrarArray()"></button>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>
     function ShowModal(gano) {
@@ -155,47 +159,89 @@
             $('#modalLost').modal('show')
         }
     }
-    const letras_respuestas = ['d', 'i', 's', 't', 'a', 'n', 'c', 'i', 'a']
-    const letras_abecedario = [...letras_respuestas, 'z', 'x', 'v', 'g', 'h', 'k']
-    const contenedor = document.querySelector('.contenedor');
-    const medio = document.querySelector('#medio');
-    const letras__contenedor = document.querySelector('#letras__contenedor');
-    let terminado = letras_respuestas.length;
-    var letter_id = 0;
-    while (letras_abecedario.length) {
-        const index = Math.floor(Math.random() * letras_abecedario.length);
-        const div = document.createElement('div');
-        div.className = 'letra shadow p-1 bg-white rounded pointter';
-        div.id = letter_id;
-        div.innerHTML = ("<h3>" + letras_abecedario[index] + "</h3>")
-        letras__contenedor.appendChild(div)
-        letras_abecedario.splice(index, 1);
-        $(".pointter").on("click", function(event) {
-            console.log(event.target.textContent)
-            if (validarArray(event.target.textContent)) {
-                $(this).remove();
-                document.querySelector("." + event.target.textContent).className = "letra shadow p-1 bg-white rounded"
-                validarRespuesta();
-            }
-            /* else{
-                            alert("Esta letra no se encuentra en la palabra")
-                        } */
+    var letras_respuestas;
+    var completado;
+    function iniciarJuego(result) {
+        console.log(result)
+        if (result.tipoPregunta == 1) {
+            //cricigrama
+            console.log(result)
+            letras_respuestas = (result.answer).split('');
+            const letras_abecedario = [...letras_respuestas, 'z', 'x', 'v', 'g', 'h', 'k']
+            const contenedor = document.querySelector('.contenedor');
+            const medio = document.querySelector('#medio');
+            const letras__contenedor = document.querySelector('#letras__contenedor');
+            let terminado = letras_respuestas.length;
+            var letter_id = 0;
+            while (letras_abecedario.length) {
+                const index = Math.floor(Math.random() * letras_abecedario.length);
+                const div = document.createElement('div');
+                div.className = 'letra shadow p-1 bg-white rounded pointter';
+                div.id = letter_id;
+                div.innerHTML = ("<h3>" + letras_abecedario[index] + "</h3>")
+                letras__contenedor.appendChild(div)
+                letras_abecedario.splice(index, 1);
+                $(".pointter").on("click", function(event) {
+                    console.log(event.target.textContent)
+                    if (validarArray(event.target.textContent)) {
+                        $(this).remove();
+                        try {
+                            document.querySelector("." + event.target.textContent).className = "letra shadow p-1 bg-white rounded"
+                            alert("asd")
+                        } catch (error) {
+                            console.log(error)
+                        }
+                        validarRespuesta();
+                    }
+                    /* else{
+                                    alert("Esta letra no se encuentra en la palabra")
+                                } */
 
-            event.preventDefault();
-        });
-        letter_id++
+                    event.preventDefault();
+                });
+                letter_id++
+            }
+            console.log(medio);
+            for (let index = 0; index < terminado; index++) {
+                const div = document.createElement('div');
+                div.className = 'placeholder ';
+                div.id = index;
+                const letraopacada = document.createElement('div');
+                letraopacada.className = 'letra shadow p-1 bg-white rounded opaco ' + letras_respuestas[index];
+                letraopacada.innerHTML = ("<h3>" + letras_respuestas[index] + "</h3>")
+                div.appendChild(letraopacada)
+                //letras_respuestas.splice(index, 1);
+                medio.appendChild(div);
+            }
+            completado = document.getElementsByClassName("opaco");
+        } else if (result.tipoPregunta == 2) {
+            //respuesta multiple
+            const contenedor = document.querySelector('.contenedor');
+            const medio = document.querySelector('#medio');
+            const letras__contenedor = document.querySelector('#letras__contenedor');
+            const div = document.createElement('div');
+            div.innerHTML = ("<h3> at Work </h3>")
+            //letras_respuestas.splice(index, 1);
+            medio.appendChild(div);
+        } else {
+            //responder con cuadro de texto
+            const contenedor = document.querySelector('.contenedor');
+
+            const medio = document.querySelector('#medio');
+            const letras__contenedor = document.querySelector('#letras__contenedor');
+            const div = document.createElement('div');
+            div.innerHTML = ("<h3> at Work </h3>")
+            //letras_respuestas.splice(index, 1);
+            medio.appendChild(div);
+        }
+
     }
-    console.log(medio);
-    for (let index = 0; index < terminado; index++) {
-        const div = document.createElement('div');
-        div.className = 'placeholder ';
-        div.id = index;
-        const letraopacada = document.createElement('div');
-        letraopacada.className = 'letra shadow p-1 bg-white rounded opaco ' + letras_respuestas[index];
-        letraopacada.innerHTML = ("<h3>" + letras_respuestas[index] + "</h3>")
-        div.appendChild(letraopacada)
-        //letras_respuestas.splice(index, 1);
-        medio.appendChild(div);
+
+    function borrarArray() {
+        var ids = localStorage.getItem("ids")
+        console.log(ids)
+        var newIds = ids.slice(2)
+        localStorage.setItem("ids", newIds)
     }
 
     function validarArray(letra) {
@@ -211,13 +257,48 @@
     }
 
     function validarRespuesta() {
-        const completado = document.getElementsByClassName("opaco");
+        completado
         if (completado.length == 0) {
             ShowModal(true)
             //console.log("se acabaron manooooooooo");
             //console.log($("#medio").text());
         }
     }
+
+    function local() {
+        var con = localStorage.getItem('ids');
+        $.ajax({
+            type: "POST",
+            url: "quiestion/json",
+            data: {
+                data: con
+            },
+            dataType: 'json',
+            success: function(data) {
+                console.log(data[0])
+                $.ajax({
+                    type: "POST",
+                    url: "quiestion/filtrador",
+                    data: {
+                        data: data[0]
+                    },
+                    dataType: 'json',
+                    success: function(result) {
+                        iniciarJuego(result[data[0]])
+                    },
+                    error: function(error) {
+                        alert(error);
+                        console.log(error);
+                    }
+                });
+            },
+            error: function(error) {
+                alert(error);
+                console.log(error);
+            }
+        });
+    };
+    local();
     /* letras__contenedor.addEventListener('dragstart', e => {
 
         e.dataTransfer.setData('id', e.target.id)
@@ -262,7 +343,6 @@
             $('h2').text(i);
             if (i == 0) {
                 clearInterval(interval);
-                alert("se acabo el tiempo")
                 return;
             }
             $('.circle_animation').css('stroke-dashoffset', initialOffset - ((i + 1) * (initialOffset / time)));

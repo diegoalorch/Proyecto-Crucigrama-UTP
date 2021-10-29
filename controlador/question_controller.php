@@ -10,5 +10,13 @@ class question_controller
         $data=json_decode(file_get_contents("question.json"),true);
         include_once "view/json.php";
     }
+    public static function filtrador()
+    {
+        $data=json_decode(file_get_contents("question.json"),true);
+        include_once "view/filtrador.php";
+    }
 
 }
+/* foreach ($data as $valor) {?>
+    <h1>hola</h1>
+    <?php } */

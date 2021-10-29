@@ -1,20 +1,23 @@
 <?php require "view/header.php"; ?>
+<?php $data = json_decode(file_get_contents("question.json"), true);
+shuffle($data["Facil"]);
+?>
 <link rel="stylesheet" href="<?php echo $GLOBALS['BASE_URL'] ?>publico/css/personaje.css">
 <div class="container">
   <div class="block1">
     <div class="block_name">
       <div class="form__div">
-          <input type="text" class="form__input" placeholder="apodo" id="input_nickname">
-          <label for="" class="form__label">Apodo</label>
+        <input type="text" class="form__input" placeholder="apodo" id="input_nickname">
+        <label for="" class="form__label">Apodo</label>
       </div>
     </div>
     <div class="block_select">
       <select class="form-control select" id="id_select" onchange="show();">
-          <option selected>Seleccione la dificultad</option>
-          <option value="0">Facil</option>
-          <option value="1">Normal</option>
-          <option value="2">Dificil</option>
-      </select>  
+        <option selected>Seleccione la dificultad</option>
+        <option value="0">Facil</option>
+        <option value="1">Normal</option>
+        <option value="2">Dificil</option>
+      </select>
     </div>
   </div>
 
@@ -35,6 +38,11 @@
     </div>
   </div>
 </div>
-
+<script>
+  const ids = [<?php foreach ($data["Facil"] as $valor) { ?>
+            <?php echo $valor["id"] . "," ?>
+        <?php } ?>
+    ]
+</script>
 <script type="text/javascript" src="<?php echo $GLOBALS['BASE_URL'] ?>publico/js/personaje.js"></script>
 <?php require "view/footer.php"; ?>
