@@ -104,15 +104,9 @@
 
     <div class="contenedor container shadow p-3 mb-5 bg-white rounded" id="question">
     </div>
-
-    <div class="item html">
-        <h2>30</h2>
-        <svg width="160" height="160" xmlns="http://www.w3.org/2000/svg">
-            <g>
-                <title>Layer 1</title>
-                <circle id="circle" class="circle_animation" r="69.85699" cy="81" cx="81" stroke-width="8" stroke="#6fdb6f" fill="none" />
-            </g>
-        </svg>
+    <div id="example_write"></div>
+    <div class="item html" id="idimg">
+        <!-- <img src="<?php echo $GLOBALS['BASE_URL'] ?>publico/img/level_1/P1.gif" alt="this slowpoke moves"  width="250" id="idimg"/> -->
     </div>
 </div>
 <div id="medio">
@@ -167,6 +161,7 @@
     </div>
 
 </div>
+<div id="button_VA"></div>
 <button onclick="borrarArray()"></button>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>
@@ -185,6 +180,9 @@
         console.log(result)
         const question = document.querySelector('#question');
         question.innerHTML = (result.question)
+        const imagen1 = document.querySelector('#idimg');
+        imagen1.innerHTML = ('<img src=<?php echo $GLOBALS['BASE_URL'] ?>'+result.imagen+' width=250/>')   
+
         if (result.tipoPregunta == 1) {
             //cricigrama
             console.log(result)
@@ -246,18 +244,13 @@
             //letras_respuestas.splice(index, 1);
             // medio.appendChild(div);
         } else {
-            //responder con cuadro de texto
-            console.log('hola')
+            const question = document.querySelector('#example_write');
             const contenedor = document.querySelector('.contenedor');
             const medio = document.querySelector('#medio');
             const letras__contenedor = document.querySelector('#letras__contenedor');
             const div = document.createElement('div');
             div.innerHTML = ("<h3> at Work </h3>")
-            write_answer();
-            //letras_respuestas.splice(index, 1);
-            // Writing answer
-
-
+            write_answer(result);
             medio.appendChild(div);
         }
 
@@ -266,7 +259,7 @@
     /*Start Options*/
     function loopDivs(result2){
         for (let i = 0; i < result2.length; i++) {
-            addDivs(result2[i]);  
+            addDivs(result2[i]);
         }
     }
 
@@ -276,11 +269,9 @@
         divNew.innerHTML = nameDiv.option;
         divNew.addEventListener('click',function(){
             if (nameDiv.iscorrect == true) {
-                alert("Lo lograste rick");
                 ShowModal(true);
             } else {    
                 ShowModal(false);
-                alert("A comprar otro morthy");
             }
         })
         
@@ -290,11 +281,143 @@
     
     /*Start Write Answer*/
     
-    function write_answer(){
+    function write_answer(result2){          
         const writing = document.createElement('input');
         document.getElementById('writing_container').appendChild(writing);
+        writing.classList.add('answer_writing');
+        condition_text(result2);
+    }
+    var cadena="";
+    function condition_text(result){
+        cadena = result.answer;
+        if (result.answer.match(/,.*/)) {
+            const question = document.querySelector('#question');
+            question.removeChild;
+            question.innerHTML = ("<span>"+result.question+"</span><br><br> Respuesta en orden alfabetico, ejemplo : La almendra, epidemia y los mamiferos");
+            console.log("tiene coma : Ejemplo y palabras clave");
+            const button_Va = document.querySelector('#button_VA');
+            answer_with_comma();
+            button_Va.innerHTML = ("<button onclick=validarAnswert2()>Next Level 2</button>");
+        } else {
+            const button_Va = document.querySelector('#button_VA');
+            button_Va.innerHTML = ("<button onclick=validarAnswert1()>Next Level</button>");     
+            answer_without_comma(cadena);
+        }
     }
 
+    var keyword="";
+    var keyword_1="";
+    var keyword_2="";
+    var keyword_3="";
+    function answer_without_comma(cadena){        
+        var arrayCadenas = separador(cadena," ")
+        console.log(arrayCadenas);
+        for (var i=0; i < arrayCadenas.length; i++){
+            if (arrayCadenas[i].length > 2 ) {
+                console.log(arrayCadenas[i]);
+                keyword = keyword +" "+ arrayCadenas[i];
+            }else{
+                console.log("No eres apto" + arrayCadenas[i]);
+            }
+        }
+    }
+
+    function answer_with_comma(){
+        var arrayOne = separador(cadena,",");
+        for (var i=0; i < arrayOne.length; i++){
+            if (arrayOne[i].match(/y.*/)) {
+                console.log("testando");
+                var arrayTwo = separador(arrayOne[i],"y");
+                console.log(arrayTwo);
+                for (let i2 = 0; i2 < arrayTwo.length; i2++) {
+                    var arrayFinal = separador(arrayTwo[i2]," ");
+                    console.log(arrayFinal);
+                    for (let i3 = 0; i3 < arrayFinal.length; i3++) {
+                        if (arrayFinal[i3].length > 2) {
+                            if (i2 == 0) {
+                                keyword_2 = keyword_2 +" "+ arrayFinal[i3];
+                            }else if(i2 == 1){
+                                keyword_3 = keyword_3 +" "+ arrayFinal[i3];
+                            }
+                        }
+                    }
+                }
+            }else{
+                var array_key1 = separador(arrayOne[i]," ");
+                test(array_key1);
+            }
+        }
+        console.log("======================");
+        console.log("key 1 = " + keyword_1);
+        console.log("key 2 = " + keyword_2);
+        console.log("key 3 = " + keyword_3);
+    }
+
+    function test(array_key1){
+        for (var i=0; i < array_key1.length; i++){
+            if (array_key1[i].length > 2 ) {
+                keyword_1 = keyword_1 +" "+ array_key1[i];
+            }
+        }
+    }
+
+    function validarAnswert1(){
+        console.log("test");
+        console.log(keyword);
+        var input = $(".answer_writing").val();
+        var newinput = "l "+input+" l" 
+        console.log(input);
+        console.log("====================");
+        if (newinput.toLowerCase().match(keyword.toLowerCase())){
+            console.log("ponwer el modal de correcto")
+        }
+    }
+
+    function validarAnswert2(){
+        var writing_1 = "";
+        var writing_2 = "";
+        var writing_3 = "";
+        var input = $(".answer_writing").val();
+        input = input.replace(", "," ");
+        input = input.replace(" y "," ");
+        newinput = separador(input," ");
+        console.log("===========")
+        console.log(newinput);
+        let i2 = 0 ;
+        for (let i = 0; i < newinput.length; i++){
+            if(newinput[i].length > 2){
+                i2= i2 + 1;
+                console.log("Hola please");
+                if (i2 == 1) {
+                    writing_1 ="t "+ newinput[i];
+                }else if(i2 == 2){
+                    writing_2 ="t "+ newinput[i];
+                }else if(i2 == 3){
+                    writing_3 ="t "+ newinput[i];                    
+                }
+            }
+        }
+        if (writing_1.toLowerCase().match(keyword_1.toLowerCase())){
+            console.log("Primer ");
+            if (writing_2.toLowerCase().match(keyword_2.toLowerCase())){
+                console.log("Segundo");
+                if (writing_3.toLowerCase().match(keyword_3.toLowerCase())){
+                    console.log("Tercera");
+                    ShowModal(true);
+                }else{
+                    ShowModal(false);
+                }
+            }else{
+                ShowModal(false);
+            }
+        }else{
+            ShowModal(false);
+        }  
+    }
+    function separador(cadena1,indicador){
+        var arrayCadenas = cadena1.split(indicador);
+        return arrayCadenas;
+    }
     /*End Write Answer*/
 
     function borrarArray() {

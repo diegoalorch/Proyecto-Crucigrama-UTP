@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap');
 label,
+
+#fondo{
+    background-image: url(publico/img/play_background.png);
+}
 h5 {
     font-family: 'Josefin Sans', sans-serif;
     font-weight: 200;

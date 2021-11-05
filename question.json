@@ -3,7 +3,7 @@
     {
     "id": 0,
     "question": "Respecto a las magnitudes vectoriales",
-    "imagen": "sadausdas",
+    "imagen": "publico/img/level_1/P1.gif",
     "answer": [
       {      
         "option": "Requiere solo del valor numérico y unidad de medida",
@@ -27,7 +27,7 @@
     {
     "id": 1,
     "question": "Del siguiente listado identifique la pareja de magnitudes escalares:",
-    "imagen": "sadausdas",
+    "imagen": "publico/img/level_1/P2.png",
     "answer": [
       {      
         "option": "fuerza, masa",
@@ -51,7 +51,7 @@
     {
     "id": 2,
     "question": "De las siguientes magnitudes físicas ¿Cuál no es fundamental en el SI?",
-    "imagen": "sadausdas",
+    "imagen": "publico/img/level_1/P3.png",
     "answer": [
       {      
         "option": "Masa",
@@ -75,14 +75,14 @@
     {
     "id": 3,
     "question": "La __________________ es el espacio, considerado desde una perspectiva lineal, entre una persona o cosa y otra:",
-    "imagen": "sadausdas",
+    "imagen": "publico/img/level_1/P4.gif",
     "answer": "distancia",
     "tipoPregunta": "1"
     },
     {
     "id": 4,
     "question": "Un objeto parte del reposo,  con una aceleración constante de módulo 15 m/s². Esto significa que el objeto:",
-    "imagen": "sadausdas",
+    "imagen": "publico/img/level_1/P5.gif",
     "answer": [
       {      
         "option": "Se mueve 15 metros cada segundo",
@@ -106,7 +106,7 @@
     {
     "id":5,
     "question": "La dirección de un vector está determinada por:",
-    "imagen": "sadausdas",
+    "imagen": "publico/img/level_1/P6.gif",
     "answer": [
       {      
         "option": "El ángulo de inclinación respecto al eje “X”",
@@ -126,7 +126,7 @@
     {
     "id":6,
     "question": "El movimiento de un proyectil, sin considerar la resistencia del aire, es una composición de:",
-    "imagen": "sadausdas",
+    "imagen": "publico/img/level_1/P7.gif",
     "answer": [
       {      
         "option": "MRUV + MRUV",
@@ -146,7 +146,7 @@
     {
     "id":7,
     "question": "Sobre un cuerpo actúan tres fuerzas no paralelas, para que el cuerpo esté en equilibrio estas fuerzas deben ser:",
-    "imagen": "sadausdas",
+    "imagen": "publico/img/level_1/P8.gif",
     "answer": [
       {      
         "option": "Coplanares y concurrentes",
@@ -170,7 +170,7 @@
     {
     "id":8,
     "question": "Cuando se cumple que: fs=μsn",
-    "imagen": "sadausdas",
+    "imagen": "publico/img/level_1/P9.png",
     "answer": [
       {      
         "option": "Cuando el deslizamiento es inminente",
@@ -186,7 +186,7 @@
     {
     "id":9,
     "question": "Cuando se cumple que: fs=μsn",
-    "imagen": "sadausdas",
+    "imagen": "publico/img/level_1/P10.gif",
     "answer": [
       {      
         "option": "Px=40cos20°; Py=40cos20°",
@@ -206,14 +206,7 @@
       }
     ],
     "tipoPregunta": "2"
-    },
-    {
-      "id": 10,
-      "question": "Testeando cuando escribes",
-      "imagen": "sadausdas",
-      "answer": "Yo soy la respuesta",
-      "tipoPregunta": "3"
-    }
+    }    
   ],
   "Normal": [
     {
