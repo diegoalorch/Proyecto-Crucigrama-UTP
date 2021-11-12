@@ -14,14 +14,13 @@
 }
 
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 .container {
   height: 100%;
-  width: 100%;
-  
+  width: 100%;  
 }
 /*******************  CONTAINER BLOCK 1 *****************/
 .block1{
@@ -32,7 +31,6 @@
   box-shadow: 3px 3px 8px -1px #c1c1bd;
   border: 0.5px var(--border-color);
   border-radius: .5rem;
-
 }
 .block_name{
   flex: 8;
@@ -130,6 +128,10 @@
   border-radius: .5rem;
 }
 /********************** BLOCK 2 **************************/
+.card{
+  border: none !important;
+}
+
 .block2{
   display: flex;
   margin-top:0.5em;

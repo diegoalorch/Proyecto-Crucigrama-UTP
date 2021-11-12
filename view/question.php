@@ -131,8 +131,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" onclick="location.reload()" class="btn btn-secondary" data-dismiss="modal">Reintentar</button>
-                <button type="button" onclick="location.reload()" class="btn btn-primary">Continuar</button>
+                <button type="button" onclick="borrarArray();location.reload()" class="btn btn-primary">Continuar</button>
             </div>
         </div>
     </div>

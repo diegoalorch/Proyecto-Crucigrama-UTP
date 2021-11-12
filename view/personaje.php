@@ -1,7 +1,5 @@
 <?php require "view/header.php"; ?>
-<?php $data = json_decode(file_get_contents("question.json"), true);
-shuffle($data["Facil"]);
-?>
+<?php $data = json_decode(file_get_contents("question.json"), true);?>
 <link rel="stylesheet" href="<?php echo $GLOBALS['BASE_URL'] ?>publico/css/personaje.css">
 <div class="container">
   <div class="block1">
@@ -13,23 +11,23 @@ shuffle($data["Facil"]);
     </div>
     <div class="block_select">
       <select class="form-control select" id="id_select" onchange="show();">
-        <option selected>Seleccione la dificultad</option>
-        <option value="0">Facil</option>
-        <option value="1">Normal</option>
-        <option value="2">Dificil</option>
+        <option selected>Selecciona el Nivel</option>
+        <option value="0">Nivel 1</option>
+        <option value="1">Nivel 2</option>
+        <option value="2">Nivel 3</option>
       </select>
     </div>
   </div>
 
   <div class="block2">
-    <div class="block2_img">
+    <div class="card block2_img">
       <span></span>
       <span></span>
       <span></span>
       <span></span>
       <div class="img1" onclick="validar(1)"></div>
     </div>
-    <div class="block2_img">
+    <div class="card block2_img">
       <span></span>
       <span></span>
       <span></span>

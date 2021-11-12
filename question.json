@@ -110,11 +110,11 @@
     "answer": [
       {      
         "option": "El ángulo de inclinación respecto al eje “X”",
-        "iscorrect":false
+        "iscorrect":true
       },
       {      
         "option": "El modulo del vector",
-        "iscorrect":true
+        "iscorrect":false
       },
       {      
         "option": "El origen y el modulo del vector ",
@@ -185,7 +185,7 @@
     },
     {
     "id":9,
-    "question": "Cuando se cumple que: fs=μsn",
+    "question": " ¿Cuál de las fuerza hace mayor trabajo para lograr un desplazamiento Δr⃗?",
     "imagen": "publico/img/level_1/P10.gif",
     "answer": [
       {      
