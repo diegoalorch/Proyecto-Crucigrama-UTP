@@ -448,7 +448,7 @@
     }
 
     function local() {
-        var con = localStorage.getItem('ids');
+        var con = localStorage.getItem('ids'); 
         $.ajax({
             type: "POST",
             url: "quiestion/json",
@@ -457,7 +457,8 @@
             },
             dataType: 'json',
             success: function(data) {
-                console.log(data[0])
+                console.log("data");
+                console.log(data);
                 $.ajax({
                     type: "POST",
                     url: "quiestion/filtrador",

@@ -23,4 +23,4 @@
 <body>
 <div class="shadow-none p-3 mb-5 bg-light rounded" style="height: 100vh;padding-top: 20px;">
     <div class="container shadow-lg p-3 mb-5 bg-white rounded" style="background-color:#C19A6B; height: 95vh; padding-top: 15px;border-radius: 30px;">
-        <div class="container shadow p-3 mb-5 bg-white rounded" id="fondo" style="height: 85vh;margin-top: 20px;border-radius: 20px;background-image: url(publico/img/play_background.png); background-repeat: no-repeat;  background-position-x:center; background-position-y:center;background-size: 100%;">
+        <div class="container shadow p-3 mb-5 bg-white rounded" id="fondo" style="height: 85vh;margin-top: 20px;border-radius: 20px;background-image: url(<?php echo $GLOBALS['BASE_URL'] ?>publico/img/play_background.png); background-repeat: no-repeat;  background-position-x:center; background-position-y:center;background-size: 100%;">

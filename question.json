@@ -210,46 +210,37 @@
   ],
   "Normal": [
     {
-    "id": 0,
-    "question": "que es oro y plata no es",
-    "answer": "platano"
-    },
-    {
-    "id": 1,
-    "question": "que le di ce una pulga aun calvo",
-    "answer": "No te agaches que me caigo"
-    },
-    {
-    "id": 2,
-    "question": "que es oro y plata no es",
-    "answer": "platano"
-    },
-    {
-    "id": 3,
-    "question": "que le di ce una pulga aun calvo",
-    "answer": "No te agaches que me caigo"
+      "id": 0,
+      "question": "La __________________ es el espacio, considerado desde una perspectiva lineal, entre una persona o cosa y otra:",
+      "imagen": "publico/img/level_1/P4.gif",
+      "answer": "distancia",
+      "tipoPregunta": "1"
     }
   ],
   "Dificil": [
     {
-    "id": 0,
-    "question": "que es oro y plata no es",
-    "answer": "platano"
-    },
-    {
-    "id": 1,
-    "question": "que le di ce una pulga aun calvo",
-    "answer": "No te agaches que me caigo"
-    },
-    {
-    "id": 2,
-    "question": "que es oro y plata no es",
-    "answer": "platano"
-    },
-    {
-    "id": 3,
-    "question": "que le di ce una pulga aun calvo",
-    "answer": "No te agaches que me caigo"
+      "id":11,
+      "question": "Hola mundo somos nivel dificl",
+      "imagen": "asdasd",
+      "answer": [
+        {      
+          "option": "Requiere solo del valor numérico y unidad de medida",
+          "iscorrect":true
+        },
+        {      
+          "option": "La fuerza es una magnitud vectorial",
+          "iscorrect":false
+        },
+        {      
+          "option": "Se representan con vectores",
+          "iscorrect":false
+        },
+        {      
+          "option": "Es necesario indicar la dirección",
+          "iscorrect":false
+        }
+      ],
+      "tipoPregunta": "2"
     }
   ]
 }

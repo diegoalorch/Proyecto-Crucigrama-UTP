@@ -9,14 +9,14 @@
         <label for="" class="form__label">Apodo</label>
       </div>
     </div>
-    <div class="block_select">
-      <select class="form-control select" id="id_select" onchange="show();">
-        <option selected>Selecciona el Nivel</option>
-        <option value="0">Nivel 1</option>
-        <option value="1">Nivel 2</option>
-        <option value="2">Nivel 3</option>
-      </select>
-    </div>
+      <div class="block_select" >
+        <select class="form-control select" id="id_select" name="id_select" >
+          <option selected>Selecciona el Nivel</option>
+          <option value="0">Nivel 1</option>
+          <option value="1">Nivel 2</option>
+          <option value="2">Nivel 3</option>
+        </select>
+      </div>
   </div>
 
   <div class="block2">
@@ -25,22 +25,25 @@
       <span></span>
       <span></span>
       <span></span>
-      <div class="img1" onclick="validar(1)"></div>
+      <div class="img1"  style="background-image: url(<?php echo $GLOBALS['BASE_URL'] ?>publico/img/img/first_character.png)" onclick="validar(1)"></div>
     </div>
     <div class="card block2_img">
       <span></span>
       <span></span>
       <span></span>
       <span></span>
-      <div class="img2" onclick="validar(2)"></div>
+      <div class="img2" style="background-image: url(<?php echo $GLOBALS['BASE_URL'] ?>publico/img/img/second_character.png)" onclick="validar(2)"></div>
     </div>
   </div>
 </div>
 <script>
-  const ids = [<?php foreach ($data["Facil"] as $valor) { ?>
-            <?php echo $valor["id"] . "," ?>
-        <?php } ?>
-    ]
+  const ids1 = [<?php foreach ($data["Facil"] as $valor) { ?>
+          <?php echo $valor["id"] . "," ?>
+      <?php } ?>
+  ]
+    
 </script>
+
+
 <script type="text/javascript" src="<?php echo $GLOBALS['BASE_URL'] ?>publico/js/personaje.js"></script>
 <?php require "view/footer.php"; ?>
