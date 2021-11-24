@@ -30,6 +30,9 @@
 </style>
 <div class="row d-flex justify-content-center">
     <h1>Fisiquiando Ando</h1>
+    <audio>
+        <source src="<?php echo $GLOBALS['BASE_URL'] ?>publico/audio/fondo_music.mp3" type="audio/mp3">
+    </audio>
 </div>
 <div class="col-12" style="margin-top: 50px;">
     <div class="row justify-content-center"><span onclick="location.href='<?php echo $GLOBALS['BASE_URL'] ?>menu/personaje'" class="start-btn">Jugar</span></div>

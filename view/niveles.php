@@ -2,8 +2,7 @@
 
 
 <div class="row justify-content-between">
-    <spam type="button" class="btn btn-link">Volver</spam>
-    <spam type="button" class="btn btn-link">Iniciar Juego</spam>
+    <spam type="button" class="btn btn-link" onclick="location.href='<?php echo $GLOBALS['BASE_URL'] ?>menu.php'">Volver</spam>
 </div>
 
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
