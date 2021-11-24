@@ -1,246 +1,308 @@
 {
-  "Facil":[
-    {
-    "id": 0,
-    "question": "Respecto a las magnitudes vectoriales",
-    "imagen": "publico/img/level_1/P1.gif",
-    "answer": [
-      {      
-        "option": "Requiere solo del valor numérico y unidad de medida",
-        "iscorrect":true
-      },
-      {      
-        "option": "La fuerza es una magnitud vectorial",
-        "iscorrect":false
-      },
-      {      
-        "option": "Se representan con vectores",
-        "iscorrect":false
-      },
-      {      
-        "option": "Es necesario indicar la dirección",
-        "iscorrect":false
-      }
-    ],
-    "tipoPregunta": "2"
-    },
-    {
-    "id": 1,
-    "question": "Del siguiente listado identifique la pareja de magnitudes escalares:",
-    "imagen": "publico/img/level_1/P2.png",
-    "answer": [
-      {      
-        "option": "fuerza, masa",
-        "iscorrect":false
-      },
-      {      
-        "option": "velocidad, masa",
-        "iscorrect":false
-      },
-      {      
-        "option": "masa, tiempo",
-        "iscorrect":true
-      },
-      {      
-        "option": "densidad, fuerza",
-        "iscorrect":false
-      }
-    ],
-    "tipoPregunta": "2"
-    },
-    {
-    "id": 2,
-    "question": "De las siguientes magnitudes físicas ¿Cuál no es fundamental en el SI?",
-    "imagen": "publico/img/level_1/P3.png",
-    "answer": [
-      {      
-        "option": "Masa",
-        "iscorrect":false
-      },
-      {      
-        "option": "Intensidad luminosa",
-        "iscorrect":false
-      },
-      {      
-        "option": "Temperatura",
-        "iscorrect":false
-      },
-      {      
-        "option": "Carga eléctrica",
-        "iscorrect":true
-      }
-    ],
-    "tipoPregunta": "2"
-    },
-    {
-    "id": 3,
-    "question": "La __________________ es el espacio, considerado desde una perspectiva lineal, entre una persona o cosa y otra:",
-    "imagen": "publico/img/level_1/P4.gif",
-    "answer": "distancia",
-    "tipoPregunta": "1"
-    },
-    {
-    "id": 4,
-    "question": "Un objeto parte del reposo,  con una aceleración constante de módulo 15 m/s². Esto significa que el objeto:",
-    "imagen": "publico/img/level_1/P5.gif",
-    "answer": [
-      {      
-        "option": "Se mueve 15 metros cada segundo",
-        "iscorrect":false
-      },
-      {      
-        "option": "Aumenta su rapidez en 15 m/s cada segundo",
-        "iscorrect":true
-      },
-      {      
-        "option": "Disminuye su rapidez en 15 m/s cada segundo",
-        "iscorrect":false
-      },
-      {      
-        "option": "Es un movimiento desacelerado",
-        "iscorrect":false
-      }
-    ],
-    "tipoPregunta": "2"
-    },
-    {
-    "id":5,
-    "question": "La dirección de un vector está determinada por:",
-    "imagen": "publico/img/level_1/P6.gif",
-    "answer": [
-      {      
-        "option": "El ángulo de inclinación respecto al eje “X”",
-        "iscorrect":true
-      },
-      {      
-        "option": "El modulo del vector",
-        "iscorrect":false
-      },
-      {      
-        "option": "El origen y el modulo del vector ",
-        "iscorrect":false
-      }
-    ],
-    "tipoPregunta": "2"
-    },
-    {
-    "id":6,
-    "question": "El movimiento de un proyectil, sin considerar la resistencia del aire, es una composición de:",
-    "imagen": "publico/img/level_1/P7.gif",
-    "answer": [
-      {      
-        "option": "MRUV + MRUV",
-        "iscorrect":false
-      },
-      {      
-        "option": "MRU + MRUV",
-        "iscorrect":true
-      },
-      {      
-        "option": "MRU + MRU",
-        "iscorrect":false
-      }
-    ],
-    "tipoPregunta": "2"
-    },
-    {
-    "id":7,
-    "question": "Sobre un cuerpo actúan tres fuerzas no paralelas, para que el cuerpo esté en equilibrio estas fuerzas deben ser:",
-    "imagen": "publico/img/level_1/P8.gif",
-    "answer": [
-      {      
-        "option": "Coplanares y concurrentes",
-        "iscorrect":true
-      },
-      {      
-        "option": "No concurrentes",
-        "iscorrect":false
-      },
-      {      
-        "option": "Concurrentes",
-        "iscorrect":false
-      },
-      {      
-        "option": "Coplanares",
-        "iscorrect":false
-      }
-    ],
-    "tipoPregunta": "2"
-    },
-    {
-    "id":8,
-    "question": "Cuando se cumple que: fs=μsn",
-    "imagen": "publico/img/level_1/P9.png",
-    "answer": [
-      {      
-        "option": "Cuando el deslizamiento es inminente",
-        "iscorrect":true
-      },
-      {      
-        "option": "Cuando hay deslizamiento",
-        "iscorrect":false
-      }
-    ],
-    "tipoPregunta": "2"
-    },
-    {
-    "id":9,
-    "question": " ¿Cuál de las fuerza hace mayor trabajo para lograr un desplazamiento Δr⃗?",
-    "imagen": "publico/img/level_1/P10.gif",
-    "answer": [
-      {      
-        "option": "Px=40cos20°; Py=40cos20°",
-        "iscorrect":false
-      },
-      {      
-        "option": "Px=40sin20°; Py=40sin20°",
-        "iscorrect":false
-      },
-      {      
-        "option": "Px=40cos20°; Py=40sin20°",
-        "iscorrect":true
-      },
-      {      
-        "option": "Px=40sin20°; Py=40cos20°",
-        "iscorrect":false
-      }
-    ],
-    "tipoPregunta": "2"
-    }    
-  ],
-  "Normal": [
-    {
-      "id": 0,
-      "question": "La __________________ es el espacio, considerado desde una perspectiva lineal, entre una persona o cosa y otra:",
-      "imagen": "publico/img/level_1/P4.gif",
-      "answer": "distancia",
-      "tipoPregunta": "1"
-    }
-  ],
-  "Dificil": [
-    {
-      "id":11,
-      "question": "Hola mundo somos nivel dificl",
-      "imagen": "asdasd",
-      "answer": [
-        {      
-          "option": "Requiere solo del valor numérico y unidad de medida",
-          "iscorrect":true
+    "Facil": [{
+            "id": 0,
+            "question": "Respecto a las magnitudes vectoriales",
+            "imagen": "publico/img/level_1/P1.gif",
+            "answer": [{
+                    "option": "Requiere solo del valor numérico y unidad de medida",
+                    "iscorrect": true
+                },
+                {
+                    "option": "La fuerza es una magnitud vectorial",
+                    "iscorrect": false
+                },
+                {
+                    "option": "Se representan con vectores",
+                    "iscorrect": false
+                },
+                {
+                    "option": "Es necesario indicar la dirección",
+                    "iscorrect": false
+                }
+            ],
+            "tipoPregunta": "2"
         },
-        {      
-          "option": "La fuerza es una magnitud vectorial",
-          "iscorrect":false
+        {
+            "id": 1,
+            "question": "Del siguiente listado identifique la pareja de magnitudes escalares:",
+            "imagen": "publico/img/level_1/P2.png",
+            "answer": [{
+                    "option": "fuerza, masa",
+                    "iscorrect": false
+                },
+                {
+                    "option": "velocidad, masa",
+                    "iscorrect": false
+                },
+                {
+                    "option": "masa, tiempo",
+                    "iscorrect": true
+                },
+                {
+                    "option": "densidad, fuerza",
+                    "iscorrect": false
+                }
+            ],
+            "tipoPregunta": "2"
         },
-        {      
-          "option": "Se representan con vectores",
-          "iscorrect":false
+        {
+            "id": 2,
+            "question": "De las siguientes magnitudes físicas ¿Cuál no es fundamental en el SI?",
+            "imagen": "publico/img/level_1/P3.png",
+            "answer": [{
+                    "option": "Masa",
+                    "iscorrect": false
+                },
+                {
+                    "option": "Intensidad luminosa",
+                    "iscorrect": false
+                },
+                {
+                    "option": "Temperatura",
+                    "iscorrect": false
+                },
+                {
+                    "option": "Carga eléctrica",
+                    "iscorrect": true
+                }
+            ],
+            "tipoPregunta": "2"
         },
-        {      
-          "option": "Es necesario indicar la dirección",
-          "iscorrect":false
+        {
+            "id": 3,
+            "question": "La __________________ es el espacio, considerado desde una perspectiva lineal, entre una persona o cosa y otra:",
+            "imagen": "publico/img/level_1/P4.gif",
+            "answer": "distancia",
+            "tipoPregunta": "1"
+        },
+        {
+            "id": 4,
+            "question": "Un objeto parte del reposo,  con una aceleración constante de módulo 15 m/s². Esto significa que el objeto:",
+            "imagen": "publico/img/level_1/P5.gif",
+            "answer": [{
+                    "option": "Se mueve 15 metros cada segundo",
+                    "iscorrect": false
+                },
+                {
+                    "option": "Aumenta su rapidez en 15 m/s cada segundo",
+                    "iscorrect": true
+                },
+                {
+                    "option": "Disminuye su rapidez en 15 m/s cada segundo",
+                    "iscorrect": false
+                },
+                {
+                    "option": "Es un movimiento desacelerado",
+                    "iscorrect": false
+                }
+            ],
+            "tipoPregunta": "2"
+        },
+        {
+            "id": 5,
+            "question": "La dirección de un vector está determinada por:",
+            "imagen": "publico/img/level_1/P6.gif",
+            "answer": [{
+                    "option": "El ángulo de inclinación respecto al eje “X”",
+                    "iscorrect": true
+                },
+                {
+                    "option": "El modulo del vector",
+                    "iscorrect": false
+                },
+                {
+                    "option": "El origen y el modulo del vector ",
+                    "iscorrect": false
+                }
+            ],
+            "tipoPregunta": "2"
+        },
+        {
+            "id": 6,
+            "question": "El movimiento de un proyectil, sin considerar la resistencia del aire, es una composición de:",
+            "imagen": "publico/img/level_1/P7.gif",
+            "answer": [{
+                    "option": "MRUV + MRUV",
+                    "iscorrect": false
+                },
+                {
+                    "option": "MRU + MRUV",
+                    "iscorrect": true
+                },
+                {
+                    "option": "MRU + MRU",
+                    "iscorrect": false
+                }
+            ],
+            "tipoPregunta": "2"
+        },
+        {
+            "id": 7,
+            "question": "Sobre un cuerpo actúan tres fuerzas no paralelas, para que el cuerpo esté en equilibrio estas fuerzas deben ser:",
+            "imagen": "publico/img/level_1/P8.gif",
+            "answer": [{
+                    "option": "Coplanares y concurrentes",
+                    "iscorrect": true
+                },
+                {
+                    "option": "No concurrentes",
+                    "iscorrect": false
+                },
+                {
+                    "option": "Concurrentes",
+                    "iscorrect": false
+                },
+                {
+                    "option": "Coplanares",
+                    "iscorrect": false
+                }
+            ],
+            "tipoPregunta": "2"
+        },
+        {
+            "id": 8,
+            "question": "Cuando se cumple que: fs=μsn",
+            "imagen": "publico/img/level_1/P9.png",
+            "answer": [{
+                    "option": "Cuando el deslizamiento es inminente",
+                    "iscorrect": true
+                },
+                {
+                    "option": "Cuando hay deslizamiento",
+                    "iscorrect": false
+                }
+            ],
+            "tipoPregunta": "2"
+        },
+        {
+            "id": 9,
+            "question": " ¿Cuál de las fuerza hace mayor trabajo para lograr un desplazamiento Δr⃗?",
+            "imagen": "publico/img/level_1/P10.gif",
+            "img": "publico/img/level_1/P10-ques.png",
+            "answer": [{
+                    "option": "Px=40cos20°; Py=40cos20°",
+                    "iscorrect": false
+                },
+                {
+                    "option": "Px=40sin20°; Py=40sin20°",
+                    "iscorrect": false
+                },
+                {
+                    "option": "Px=40cos20°; Py=40sin20°",
+                    "iscorrect": true
+                },
+                {
+                    "option": "Px=40sin20°; Py=40cos20°",
+                    "iscorrect": false
+                }
+            ],
+            "tipoPregunta": "2"
         }
-      ],
-      "tipoPregunta": "2"
-    }
-  ]
+    ],
+    "Normal": [{
+            "id": 0,
+            "question": "La energía que adquieren los cuerpos elásticos al deformarse se denomina energía potencial",
+            "imagen": "publico/img/level_2/P1.gif",
+            "answer": "ELÁSTICA",
+            "tipoPregunta": "1"
+        },
+        {
+            "id": 1,
+            "question": " La fórmula para hallar la energía potencial gravitatoria es masa por ___________ y por altura.",
+            "imagen": "publico/img/level_2/P2.png",
+            "answer": "gravedad (Epg=m.g.h)",
+            "tipoPregunta": "3"
+        }, {
+            "id": 2,
+            "question": "Es una magnitud física escalar que se representa con la letra W",
+            "imagen": "publico/img/level_2/P3.png",
+            "answer": "El trabajo",
+            "tipoPregunta": "3"
+        }, {
+            "id": 3,
+            "question": "Movimiento de vaivén (ida y vuelta) realizado por un cuerpo respecto a su posición de equilibrio se denomina movimiento",
+            "imagen": "publico/img/level_2/P4.png",
+            "answer": "oscilatorio",
+            "tipoPregunta": "1"
+        }, {
+            "id": 4,
+            "question": "¿La energía mecánica cuantas energías engloba?(orden)",
+            "imagen": "publico/img/level_2/P5.gif",
+            "answer": "la elástica, la cinética y la potencial gravitatoria",
+            "tipoPregunta": "3"
+        }, {
+            "id": 5,
+            "question": "Movimiento que se repite regularmente a iguales intervalos de tiempo",
+            "imagen": "publico/img/level_2/P6.gif",
+            "answer": "Movimiento Periódico",
+            "tipoPregunta": "3"
+        }, {
+            "id": 6,
+            "question": "Fuerza de tirón ejercida sobre un objeto por una cuerda, un cordón, etc.",
+            "imagen": "publico/img/level_2/P7.png",
+            "answer": "Tensión",
+            "tipoPregunta": "1"
+        }, {
+            "id": 7,
+            "question": "Un auto sin combustible, está rodando por la cima de una colina circular, a una velocidad(v) en ese instante. ¿Cuál es la relación correcta entre el módulo de la normal(N) y el peso del auto(W)?",
+            "imagen": "publico/img/level_2/P8.png",
+            "img": "publico/img/level_2/P8-ques.png",
+            "answer": [{
+                    "option": "N < W",
+                    "iscorrect": true
+                },
+                {
+                    "option": "N > W",
+                    "iscorrect": false
+                },
+                {
+                    "option": "N = W",
+                    "iscorrect": false
+                }
+            ],
+            "tipoPregunta": "1"
+        }, {
+            "id": 8,
+            "question": "¿Cuál de las fuerza hace mayor trabajo para lograr un desplazamiento Δr⃗?",
+            "imagen": "publico/img/level_2/P9.gif",
+            "img": "publico/img/level_2/P9-ques.png",
+            "answer": [{
+                    "option": "La fuerza de 6N",
+                    "iscorrect": true
+                },
+                {
+                    "option": "La fuerza de 8N",
+                    "iscorrect": false
+                },
+                {
+                    "option": "La fuerza de 10N",
+                    "iscorrect": false
+                },
+                {
+                    "option": "Todas hacen el mismo trabajo",
+                    "iscorrect": false
+                }
+            ],
+            "tipoPregunta": "1"
+        }
+    ],
+    "Dificil": [{
+        "id": 0,
+        "question": "El bombero sostiene la manguera en ángulo de 30ₒ con la horizontal, y el agua se descarga de la manguera en A con una velocidad de VA = 40 ft/s Si la corriente de agua golpea el edificio en B, determine sus dos distancias posibles desde el edificio.",
+        "imagen": "publico/img/level_3/P1.png",
+        "answer": "publico/img/level_3/P1-solu.png",
+        "tipoPregunta": "4"
+    }, {
+        "id": 1,
+        "question": "Una esfera lisa se lanza desde A con rapidez de 6 m/s y cuando pasa por B su energía cinética es igual a su energía potencial gravitatoria. Calcule el radio r de la superficie cilíndrica. ",
+        "imagen": "publico/img/level_3/P2.png",
+        "answer": "publico/img/level_3/P2-solu.png",
+        "tipoPregunta": "4"
+    }, {
+        "id": 2,
+        "question": "Una bola de boliche rueda sin deslizamiento sobre una superficie horizontal a 2.0 m/s. Después sube por una pendiente sin deslizamiento hasta cierta altura antes de alcanzar momentáneamente el reposo y volver rodando hacia atrás, calcule la altura.",
+        "imagen": "publico/img/level_3/P3.png",
+        "answer": "publico/img/level_3/P3-solu.png",
+        "tipoPregunta": "4"
+    }]
 }

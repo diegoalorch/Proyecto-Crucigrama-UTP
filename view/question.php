@@ -449,6 +449,7 @@
 
     function local() {
         var con = localStorage.getItem('ids'); 
+        var nivel = localStorage.getItem('nivel'); 
         $.ajax({
             type: "POST",
             url: "quiestion/json",
@@ -463,7 +464,8 @@
                     type: "POST",
                     url: "quiestion/filtrador",
                     data: {
-                        data: data[0]
+                        data: data[0],
+                        nivel: nivel
                     },
                     dataType: 'json',
                     success: function(result) {
