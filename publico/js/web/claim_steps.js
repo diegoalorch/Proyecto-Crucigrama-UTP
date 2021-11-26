@@ -1,5 +1,12 @@
 var repre = true;
-
+// function play1(){
+//     console.log("hola")
+//     var audio = document.getElementById("audio");
+//     localStorage.removeItem("audio");
+//     localStorage.setItem("audio",audio.currentTime);
+//     audio.play();
+//     audio.loop = true;
+// }
 function validateEmail(email) {
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());

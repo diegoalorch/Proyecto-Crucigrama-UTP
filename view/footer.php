@@ -2,7 +2,8 @@
 </div>
 </div>
 </body>
-
+    
+    
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
 </script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
@@ -14,3 +15,29 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script src="<?php echo $GLOBALS['BASE_URL'] ?>publico/js/web/register.js"></script>
 <script src="<?php echo $GLOBALS['BASE_URL'] ?>publico/js/web/claim_steps.js"></script>
+<script>
+    $("#myButton").trigger("click");
+    var timeAudio = localStorage.getItem("audio");
+    var audio = document.getElementById("audio");
+    audio.currentTime = timeAudio;
+    // audio.muted !=audio.muted;
+    console.log(timeAudio);
+    audio.volume = 0.5;
+    audio.muted = false;
+    audio.play();
+    function play1(){
+        if (document.getElementById("img_sound").src == "http://localhost/publico/img/img/fondo_audio.png") {
+            document.getElementById("img_sound").src = "http://localhost/publico/img/img/audio_muted.png"
+        } else {
+            document.getElementById("img_sound").src = "http://localhost/publico/img/img/fondo_audio.png"
+            
+        }
+        var audio2 = document.getElementById("audio");
+        localStorage.removeItem("audio");
+        localStorage.setItem("audio",audio2.currentTime);
+        console.log(audio2.muted);
+        audio2.play();
+        audio2.muted=!audio2.muted;
+        audio2.loop = true;
+    }
+</script>

@@ -1,4 +1,9 @@
 <head>
+<audio autoplay  preload=none id="audio" loop="true">
+    <source src="<?php echo $GLOBALS['BASE_URL'] ?>publico\audio\fondo_music.mp3" type="audio/mp3" >
+    <source src="<?php echo $GLOBALS['BASE_URL'] ?>publico\audio\fondo_music.ogv" type="audio/ogv" >
+    Your browser does not support the audio element.
+</audio>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,9 +23,15 @@
     <link rel="apple-touch-icon" href="https://capilezza.com/wp-content/uploads/2021/04/cropped-Logotipo-03-1-180x180.png">
     <meta name="msapplication-TileImage" content="https://capilezza.com/wp-content/uploads/2021/04/cropped-Logotipo-03-1-270x270.png">
 </head>
-<script src="<?php echo $GLOBALS['BASE_URL'] ?>direccion.js"></script>
+
+
+
+<!-- <script src="<?php echo $GLOBALS['BASE_URL'] ?>direccion.js"></script> -->
 
 <body>
+    <div class="music_button">
+        <button onclick="play1()" id="design"> <img id="img_sound" src="<?php echo $GLOBALS['BASE_URL'] ?>publico/img/img/fondo_audio.png" width="100%" height="100%" style="filter: hue-rotate(120deg);"> </button>
+    </div>
 <div class="shadow-none p-3 mb-5 bg-light rounded" style="height: 100vh;padding-top: 20px;">
     <div class="container shadow-lg p-3 mb-5 bg-white rounded" style="background-color:#C19A6B; height: 95vh; padding-top: 15px;border-radius: 30px;">
         <div class="container shadow p-3 mb-5 bg-white rounded" id="fondo" style="height: 85vh;margin-top: 20px;border-radius: 20px;background-image: url(<?php echo $GLOBALS['BASE_URL'] ?>publico/img/play_background.png); background-repeat: no-repeat;  background-position-x:center; background-position-y:center;background-size: 100%;">

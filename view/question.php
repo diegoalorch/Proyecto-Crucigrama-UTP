@@ -164,6 +164,11 @@
 <button onclick="borrarArray()"></button>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>
+    var audio = document.getElementById("audio");
+  var time_audio = localStorage.getItem("audio");
+  console.log("Audio= "+time_audio)
+  audio.currentTime = time_audio;
+  audio.play();
     function ShowModal(gano) {
         if (!gano) {
             console.log("1")

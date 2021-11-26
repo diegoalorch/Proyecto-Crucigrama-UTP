@@ -25,18 +25,23 @@
       <span></span>
       <span></span>
       <span></span>
-      <div class="img1"  style="background-image: url(<?php echo $GLOBALS['BASE_URL'] ?>publico/img/img/first_character.png)" onclick="validar(1)"></div>
+      <div class="img1"  style="background-image: url(<?php echo $GLOBALS['BASE_URL'] ?>publico/img/img/first_character.png)" onclick="validar(1);play1()"></div>
     </div>
     <div class="card block2_img">
       <span></span>
       <span></span>
       <span></span>
       <span></span>
-      <div class="img2" style="background-image: url(<?php echo $GLOBALS['BASE_URL'] ?>publico/img/img/second_character.png)" onclick="validar(2)"></div>
+      <div class="img2" style="background-image: url(<?php echo $GLOBALS['BASE_URL'] ?>publico/img/img/second_character.png)" onclick="validar(2);play1()"></div>
     </div>
   </div>
 </div>
 <script>
+  var audio = document.getElementById("audio");
+  var time_audio = localStorage.getItem("audio");
+  console.log("Audio= "+time_audio)
+  audio.currentTime = time_audio;
+  audio.play();
   const ids1 = [<?php foreach ($data["Facil"] as $valor) { ?>
           <?php echo $valor["id"] . "," ?>
       <?php } ?>

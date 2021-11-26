@@ -9,6 +9,20 @@ h5 {
     font-weight: 200;
 }
 
+.music_button{
+    padding-right: 25px;
+}
+#design{
+    background-color:#add8e6;
+    border-radius: 50%;
+    border: none;
+    width: 100px;
+    height: 100px;
+    margin-top: 85vh;
+    margin-right: -10px;
+    float: right;
+}
+
 .form-check {
     width: 120px;
     margin: 3px 35px;

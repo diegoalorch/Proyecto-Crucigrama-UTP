@@ -2,7 +2,7 @@
 
 
 <div class="row justify-content-between">
-    <spam type="button" class="btn btn-link" onclick="location.href='<?php echo $GLOBALS['BASE_URL'] ?>menu.php'">Volver</spam>
+    <spam type="button" class="btn btn-link" onclick="location.href='<?php echo $GLOBALS['BASE_URL'] ?>menu.php';play1()">Volver</spam>
 </div>
 
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -38,4 +38,11 @@
         <span class="sr-only">Next</span>
     </a>
 </div>
+<script>
+    var audio = document.getElementById("audio");
+    var time_audio = localStorage.getItem("audio");
+    console.log("Audio= "+time_audio)
+    audio.currentTime = time_audio;
+    audio.play();
+</script>
 <?php require "view/footer.php"; ?>
