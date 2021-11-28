@@ -1,9 +1,7 @@
 </div>
 </div>
 </div>
-</body>
-    
-    
+</body>    
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
 </script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
@@ -29,8 +27,7 @@
         if (document.getElementById("img_sound").src == "http://localhost/publico/img/img/fondo_audio.png") {
             document.getElementById("img_sound").src = "http://localhost/publico/img/img/audio_muted.png"
         } else {
-            document.getElementById("img_sound").src = "http://localhost/publico/img/img/fondo_audio.png"
-            
+            document.getElementById("img_sound").src = "http://localhost/publico/img/img/fondo_audio.png"   
         }
         var audio2 = document.getElementById("audio");
         localStorage.removeItem("audio");
