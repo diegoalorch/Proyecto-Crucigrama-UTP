@@ -1,1 +1,1 @@
-var url = 'http://localhost/';
+var url = 'http://proyecto_utp.test/';

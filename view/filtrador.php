@@ -9,4 +9,4 @@ function fintrador($var)
     }
     
 }
-echo json_encode(array_filter($data["Facil"], "fintrador"));
+echo json_encode(array_filter($data[$_POST['nivel']], "fintrador"));

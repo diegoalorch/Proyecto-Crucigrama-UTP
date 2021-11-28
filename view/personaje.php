@@ -1,5 +1,5 @@
 <?php require "view/header.php"; ?>
-<?php $data = json_decode(file_get_contents("question.json"), true);?>
+<?php $data = json_decode(file_get_contents("question.json"), true); ?>
 <link rel="stylesheet" href="<?php echo $GLOBALS['BASE_URL'] ?>publico/css/personaje.css">
 <div class="container">
   <div class="block1">
@@ -9,14 +9,14 @@
         <label for="" class="form__label">Apodo</label>
       </div>
     </div>
-      <div class="block_select" >
-        <select class="form-control select" id="id_select" name="id_select" >
-          <option selected>Selecciona el Nivel</option>
-          <option value="0">Nivel 1</option>
-          <option value="1">Nivel 2</option>
-          <option value="2">Nivel 3</option>
-        </select>
-      </div>
+    <div class="block_select">
+      <select class="form-control select" id="id_select" name="id_select">
+        <option selected>Selecciona el Nivel</option>
+        <option value="Facil">Nivel 1</option>
+        <option value="Normal">Nivel 2</option>
+        <option value="Dificil">Nivel 3</option>
+      </select>
+    </div>
   </div>
 
   <div class="block2">
@@ -43,10 +43,17 @@
   audio.currentTime = time_audio;
   audio.play();
   const ids1 = [<?php foreach ($data["Facil"] as $valor) { ?>
-          <?php echo $valor["id"] . "," ?>
-      <?php } ?>
+      <?php echo $valor["id"] . "," ?>
+    <?php } ?>
   ]
-    
+  const ids2 = [<?php foreach ($data["Normal"] as $valor) { ?>
+      <?php echo $valor["id"] . "," ?>
+    <?php } ?>
+  ]
+  const ids3 = [<?php foreach ($data["Dificil"] as $valor) { ?>
+      <?php echo $valor["id"] . "," ?>
+    <?php } ?>
+  ]
 </script>
 
 
