@@ -9,4 +9,8 @@ class menu_controller
     {
         include_once "view/personaje.php";
     }
+    public static function score()
+    {
+        include_once "view/score.php";
+    }
 }
