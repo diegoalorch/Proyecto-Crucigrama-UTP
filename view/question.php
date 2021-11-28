@@ -226,6 +226,12 @@
         console.log(result)
         const question = document.querySelector('#question');
         question.innerHTML = (result.question)
+        if (result.img) {
+            const questionWithImagen = document.createElement('img')
+            questionWithImagen.setAttribute('src',result.img)
+            questionWithImagen.setAttribute('height',"150px")
+            question.appendChild(questionWithImagen)
+        }
         const imagen1 = document.querySelector('#idimg');
         imagen1.innerHTML = ('<img src=<?php echo $GLOBALS['BASE_URL'] ?>'+result.imagen+' width=250/>')   
 
