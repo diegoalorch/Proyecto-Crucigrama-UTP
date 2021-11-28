@@ -57,5 +57,6 @@
 </script>
 
 
+<script type="text/javascript" src="<?php echo $GLOBALS['BASE_URL'] ?>direccion.js"></script>
 <script type="text/javascript" src="<?php echo $GLOBALS['BASE_URL'] ?>publico/js/personaje.js"></script>
 <?php require "view/footer.php"; ?>
