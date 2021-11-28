@@ -100,6 +100,9 @@
         cursor: pointer;
     }
 </style>
+<audio type="audio/mp3" id="audio_answer" controls>
+    <!-- <source src="<?php echo $GLOBALS['BASE_URL'] ?>publico/audio/asnwer_correct.mp3" type="audio/mp3"> -->
+</audio>
 <div class="superior">
 
     <div class="contenedor container shadow p-3 mb-5 bg-white rounded" id="question">
@@ -149,7 +152,7 @@
             <div class="modal-body">
                 <div class="row" style="flex-wrap: nowrap !important;">
                     <img width="50%" src="<?php echo $GLOBALS['BASE_URL'] ?>publico/img/img/first_character.png" alt="" srcset="">
-                    <h3>Increible respuesta correta</h3>
+                    <h3>Increible respuesta correcta</h3>
                 </div>
             </div>
             <div class="modal-footer">
@@ -162,25 +165,64 @@
 </div>
 <div id="button_VA"></div>
 <button onclick="borrarArray()"></button>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>
-    var audio = document.getElementById("audio");
+  var audio = document.getElementById("audio");
   var time_audio = localStorage.getItem("audio");
   console.log("Audio= "+time_audio)
   audio.currentTime = time_audio;
   audio.play();
     function ShowModal(gano) {
+        var audio_answer = document.getElementById("audio_answer");
         if (!gano) {
+            audio_answer.src="<?php echo $GLOBALS['BASE_URL'] ?>publico/audio/answer_incorrect.mp3";
+            audio_answer.play();
+            // audio_answer.currentTime = 
             console.log("1")
-            $('#modalWin').modal('show')
+            // $('#modalWin').modal('show')
+            Swal.fire({
+                title: 'Respuesta incorrecta!',
+                text: 'Mejor suerte para la proxima!',
+                imageUrl: '<?php echo $GLOBALS['BASE_URL'] ?>publico/img/img/first_charcter_B.jpg',
+                imageHeight: 300,
+                imageAlt: 'Custom image',
+                confirmButtonText: 'Continuar',
+                showLoaderOnConfirm: true,
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    borrarArray();
+                    location.reload()
+                }
+            })
         } else {
+            audio_answer.src="<?php echo $GLOBALS['BASE_URL'] ?>publico/audio/asnwer_correct.mp3";
+            audio_answer.play();
             console.log("2")
-            $('#modalLost').modal('show')
+            // $('#modalLost').modal('show')
+            Swal.fire({
+                title: 'Congratulations!',
+                text: 'Increible respuesta correcta!',
+                imageUrl: '<?php echo $GLOBALS['BASE_URL'] ?>publico/img/img/first_character.png',
+                imageHeight: 300,
+                imageAlt: 'Custom image',
+                confirmButtonText: 'Continuar',
+                showLoaderOnConfirm: true,
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    borrarArray();
+                    location.reload()
+                }
+            })
         }
     }
     var letras_respuestas;
     var completado;
     function iniciarJuego(result) {
+        if (result == null) {
+            //Nivel ten xd :3 yatamos ya :3 yatamos ya
+            console.log("no hay nada tu vida no vale ")
+        }
         console.log(result)
         const question = document.querySelector('#question');
         question.innerHTML = (result.question)
@@ -278,9 +320,10 @@
         divNew.classList.add('divs');
         divNew.innerHTML = nameDiv.option;
         divNew.addEventListener('click',function(){
+            play1();
             if (nameDiv.iscorrect == true) {
                 ShowModal(true);
-            } else {    
+            } else {
                 ShowModal(false);
             }
         })
