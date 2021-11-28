@@ -37,6 +37,7 @@
   </div>
 </div>
 <script>
+  localStorage.setItem('background',"<?php echo $GLOBALS['BASE_URL'] ?>publico/img/img/fondojugadores.png");
   var audio = document.getElementById("audio");
   var time_audio = localStorage.getItem("audio");
   console.log("Audio= "+time_audio)

@@ -199,6 +199,7 @@
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>
+    localStorage.setItem('background',"<?php echo $GLOBALS['BASE_URL'] ?>publico/img/play_background.png");
     var audio = document.getElementById("audio");
     var time_audio = localStorage.getItem("audio");
     const scoreFacil = localStorage.getItem('scoreFacil');

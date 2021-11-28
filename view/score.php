@@ -28,6 +28,7 @@
 </div>
 <script type="text/javascript" src="<?php echo $GLOBALS['BASE_URL'] ?>direccion.js"></script>
 <script>
+    localStorage.setItem('background',"<?php echo $GLOBALS['BASE_URL'] ?>publico/img/img/fondojugadores.png");
     const scoreFacil = localStorage.getItem('scoreFacil') ? localStorage.getItem('scoreFacil') : 0;
     const scoreDivFacil = document.querySelector('#scoreFacil');
     const scoreNormal = localStorage.getItem('scoreNormal') ? localStorage.getItem('scoreNormal') : 0;

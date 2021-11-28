@@ -39,4 +39,9 @@
         audio2.muted = !audio2.muted;
         audio2.loop = true;
     }
+
+    function setBackground(){
+        document.getElementById("fondo").style.backgroundImage = "url("+localStorage.getItem("background")+")";
+    }
+    setBackground();
 </script>
