@@ -82,11 +82,14 @@
     }
 
     .divs {
-        width: 400px;
-        height: auto;
-        font-size: 2rem;
+        display: flex;
+        width: 450px;
+        height: 78px;
+        max-height: 78px;
+        font-size: 1.5rem;
         text-align: center;
-        display: inline-block;
+        align-items:center;
+        justify-content:center;
         margin: 20px;
         font-weight: bold;
         padding: 10px 0 10px 0;
@@ -99,6 +102,12 @@
         border-radius: 7px;
         box-shadow: 0 .2em gray;
         cursor: pointer;
+        flex-wrap : nowrap;
+    }
+    #answer_container{
+        display: flex;
+        flex-wrap : wrap;
+        
     }
 </style>
 <audio type="audio/mp3" id="audio_answer">
