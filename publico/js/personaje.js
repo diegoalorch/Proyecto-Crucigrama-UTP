@@ -12,22 +12,26 @@ function validar(character) {
         switch (showSelect) {
             case 'Facil':
                 localStorage.setItem("ids", ids1)
+                localStorage.setItem('scoreFacil', 0)
                 break;
             case 'Normal':
                 localStorage.setItem("ids", ids2)
+                localStorage.setItem('scoreNormal', 0)
                 break;
             case 'Dificil':
                 localStorage.setItem("ids", ids3)
+                localStorage.setItem('scoreDificil', 0)
                 break;
             default:
                 localStorage.setItem("ids", ids1)
+                localStorage.setItem('scoreFacil', 0)
                 break;
         }
 
         localStorage.setItem("nivel", showSelect)
         console.log(localStorage.getItem("ids1"))
         alert("Nickname validado y el select");
-        location.href = url+'quiestion';
+        location.href = url + 'quiestion';
     } else {
         alert("Ingrese su apodo y/o seleccione una dificultad");
     }

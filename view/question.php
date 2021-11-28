@@ -80,7 +80,7 @@
         opacity: 0%;
     }
 
-    .divs{
+    .divs {
         width: 400px;
         height: auto;
         font-size: 2rem;
@@ -168,15 +168,21 @@
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>
-  var audio = document.getElementById("audio");
-  var time_audio = localStorage.getItem("audio");
-  console.log("Audio= "+time_audio)
-  audio.currentTime = time_audio;
-  audio.play();
+    var audio = document.getElementById("audio");
+    var time_audio = localStorage.getItem("audio");
+    const scoreFacil = localStorage.getItem('scoreFacil');
+    const scoreNormal = localStorage.getItem('scoreNormal');
+    const scoreDificil = localStorage.getItem('scoreDificil');
+    var currentQuestion;
+    var nivel = localStorage.getItem('nivel');
+    console.log("Audio= " + time_audio);
+    audio.currentTime = time_audio;
+    audio.play();
+
     function ShowModal(gano) {
         var audio_answer = document.getElementById("audio_answer");
         if (!gano) {
-            audio_answer.src="<?php echo $GLOBALS['BASE_URL'] ?>publico/audio/answer_incorrect.mp3";
+            audio_answer.src = "<?php echo $GLOBALS['BASE_URL'] ?>publico/audio/answer_incorrect.mp3";
             audio_answer.play();
             // audio_answer.currentTime = 
             console.log("1")
@@ -196,7 +202,8 @@
                 }
             })
         } else {
-            audio_answer.src="<?php echo $GLOBALS['BASE_URL'] ?>publico/audio/asnwer_correct.mp3";
+            setScore();
+            audio_answer.src = "<?php echo $GLOBALS['BASE_URL'] ?>publico/audio/asnwer_correct.mp3";
             audio_answer.play();
             console.log("2")
             // $('#modalLost').modal('show')
@@ -218,6 +225,7 @@
     }
     var letras_respuestas;
     var completado;
+
     function iniciarJuego(result) {
         if (result == null) {
             //Nivel ten xd :3 yatamos ya :3 yatamos ya
@@ -228,12 +236,12 @@
         question.innerHTML = (result.question)
         if (result.img) {
             const questionWithImagen = document.createElement('img')
-            questionWithImagen.setAttribute('src',result.img)
-            questionWithImagen.setAttribute('height',"150px")
+            questionWithImagen.setAttribute('src', result.img)
+            questionWithImagen.setAttribute('height', "150px")
             question.appendChild(questionWithImagen)
         }
         const imagen1 = document.querySelector('#idimg');
-        imagen1.innerHTML = ('<img src=<?php echo $GLOBALS['BASE_URL'] ?>'+result.imagen+' width=250/>')   
+        imagen1.innerHTML = ('<img src=<?php echo $GLOBALS['BASE_URL'] ?>' + result.imagen + ' width=250/>')
 
         if (result.tipoPregunta == 1) {
             //cricigrama
@@ -291,7 +299,7 @@
             const contenedor = document.querySelector('.contenedor');
             const medio = document.querySelector('#medio');
             const letras__contenedor = document.querySelector('#letras__contenedor');
-            
+
             loopDivs(result.answer);
             //letras_respuestas.splice(index, 1);
             // medio.appendChild(div);
@@ -309,17 +317,17 @@
     }
 
     /*Start Options*/
-    function loopDivs(result2){
+    function loopDivs(result2) {
         for (let i = 0; i < result2.length; i++) {
             addDivs(result2[i]);
         }
     }
 
-    function addDivs(nameDiv){
+    function addDivs(nameDiv) {
         let divNew = document.createElement('div');
         divNew.classList.add('divs');
         divNew.innerHTML = nameDiv.option;
-        divNew.addEventListener('click',function(){
+        divNew.addEventListener('click', function() {
             play1();
             if (nameDiv.iscorrect == true) {
                 ShowModal(true);
@@ -327,76 +335,78 @@
                 ShowModal(false);
             }
         })
-        
+
         document.getElementById('answer_container').appendChild(divNew);
     }
     /*End Options*/
-    
+
     /*Start Write Answer*/
-    
-    function write_answer(result2){          
+
+    function write_answer(result2) {
         const writing = document.createElement('input');
         document.getElementById('writing_container').appendChild(writing);
         writing.classList.add('answer_writing');
         condition_text(result2);
     }
-    var cadena="";
-    function condition_text(result){
+    var cadena = "";
+
+    function condition_text(result) {
         cadena = result.answer;
         if (result.answer.match(/,.*/)) {
             const question = document.querySelector('#question');
             question.removeChild;
-            question.innerHTML = ("<span>"+result.question+"</span><br><br> Respuesta en orden alfabetico, ejemplo : La almendra, epidemia y los mamiferos");
+            question.innerHTML = ("<span>" + result.question + "</span><br><br> Respuesta en orden alfabetico, ejemplo : La almendra, epidemia y los mamiferos");
             console.log("tiene coma : Ejemplo y palabras clave");
             const button_Va = document.querySelector('#button_VA');
             answer_with_comma();
             button_Va.innerHTML = ("<button onclick=validarAnswert2()>Next Level 2</button>");
         } else {
             const button_Va = document.querySelector('#button_VA');
-            button_Va.innerHTML = ("<button onclick=validarAnswert1()>Next Level</button>");     
+            button_Va.innerHTML = ("<button onclick=validarAnswert1()>Next Level</button>");
             answer_without_comma(cadena);
         }
     }
 
-    var keyword="";
-    var keyword_1="";
-    var keyword_2="";
-    var keyword_3="";
-    function answer_without_comma(cadena){        
-        var arrayCadenas = separador(cadena," ")
+    var keyword = "";
+    var keyword_1 = "";
+    var keyword_2 = "";
+    var keyword_3 = "";
+
+    function answer_without_comma(cadena) {
+        var arrayCadenas = separador(cadena, " ")
         console.log(arrayCadenas);
-        for (var i=0; i < arrayCadenas.length; i++){
-            if (arrayCadenas[i].length > 2 ) {
+        for (var i = 0; i < arrayCadenas.length; i++) {
+            if (arrayCadenas[i].length > 2) {
                 console.log(arrayCadenas[i]);
-                keyword = keyword +" "+ arrayCadenas[i];
-            }else{
+                keyword = keyword + " " + arrayCadenas[i];
+            } else {
                 console.log("No eres apto" + arrayCadenas[i]);
             }
         }
     }
 
-    function answer_with_comma(){
-        var arrayOne = separador(cadena,",");
-        for (var i=0; i < arrayOne.length; i++){
+    function answer_with_comma() {
+        var arrayOne = separador(cadena, ",");
+        for (var i = 0; i < arrayOne.length; i++) {
             if (arrayOne[i].match(/y.*/)) {
                 console.log("testando");
-                var arrayTwo = separador(arrayOne[i],"y");
+                var arrayTwo = separador(arrayOne[i], "y");
                 console.log(arrayTwo);
                 for (let i2 = 0; i2 < arrayTwo.length; i2++) {
-                    var arrayFinal = separador(arrayTwo[i2]," ");
+                    var arrayFinal = separador(arrayTwo[i2], " ");
                     console.log(arrayFinal);
                     for (let i3 = 0; i3 < arrayFinal.length; i3++) {
                         if (arrayFinal[i3].length > 2) {
                             if (i2 == 0) {
-                                keyword_2 = keyword_2 +" "+ arrayFinal[i3];
-                            }else if(i2 == 1){
-                                keyword_3 = keyword_3 +" "+ arrayFinal[i3];
+                                keyword_2 = keyword_2 + " " + arrayFinal[i3];
+                            } else if (i2 == 1) {
+                                keyword_3 = keyword_3 + " " + arrayFinal[i3];
                             }
                         }
                     }
                 }
-            }else{
-                var array_key1 = separador(arrayOne[i]," ");
+            } else {
+                var array_key1 = separador(arrayOne[i], " ");
                 test(array_key1);
             }
         }
@@ -406,68 +416,69 @@
         console.log("key 3 = " + keyword_3);
     }
 
-    function test(array_key1){
-        for (var i=0; i < array_key1.length; i++){
-            if (array_key1[i].length > 2 ) {
-                keyword_1 = keyword_1 +" "+ array_key1[i];
+    function test(array_key1) {
+        for (var i = 0; i < array_key1.length; i++) {
+            if (array_key1[i].length > 2) {
+                keyword_1 = keyword_1 + " " + array_key1[i];
             }
         }
     }
 
-    function validarAnswert1(){
+    function validarAnswert1() {
         console.log("test");
         console.log(keyword);
         var input = $(".answer_writing").val();
-        var newinput = "l "+input+" l" 
+        var newinput = "l " + input + " l"
         console.log(input);
         console.log("====================");
-        if (newinput.toLowerCase().match(keyword.toLowerCase())){
+        if (newinput.toLowerCase().match(keyword.toLowerCase())) {
             console.log("ponwer el modal de correcto")
         }
     }
 
-    function validarAnswert2(){
+    function validarAnswert2() {
         var writing_1 = "";
         var writing_2 = "";
         var writing_3 = "";
         var input = $(".answer_writing").val();
-        input = input.replace(", "," ");
-        input = input.replace(" y "," ");
-        newinput = separador(input," ");
+        input = input.replace(", ", " ");
+        input = input.replace(" y ", " ");
+        newinput = separador(input, " ");
         console.log("===========")
         console.log(newinput);
-        let i2 = 0 ;
-        for (let i = 0; i < newinput.length; i++){
-            if(newinput[i].length > 2){
-                i2= i2 + 1;
+        let i2 = 0;
+        for (let i = 0; i < newinput.length; i++) {
+            if (newinput[i].length > 2) {
+                i2 = i2 + 1;
                 console.log("Hola please");
                 if (i2 == 1) {
-                    writing_1 ="t "+ newinput[i];
-                }else if(i2 == 2){
-                    writing_2 ="t "+ newinput[i];
-                }else if(i2 == 3){
-                    writing_3 ="t "+ newinput[i];                    
+                    writing_1 = "t " + newinput[i];
+                } else if (i2 == 2) {
+                    writing_2 = "t " + newinput[i];
+                } else if (i2 == 3) {
+                    writing_3 = "t " + newinput[i];
                 }
             }
         }
-        if (writing_1.toLowerCase().match(keyword_1.toLowerCase())){
+        if (writing_1.toLowerCase().match(keyword_1.toLowerCase())) {
             console.log("Primer ");
-            if (writing_2.toLowerCase().match(keyword_2.toLowerCase())){
+            if (writing_2.toLowerCase().match(keyword_2.toLowerCase())) {
                 console.log("Segundo");
-                if (writing_3.toLowerCase().match(keyword_3.toLowerCase())){
+                if (writing_3.toLowerCase().match(keyword_3.toLowerCase())) {
                     console.log("Tercera");
                     ShowModal(true);
-                }else{
+                } else {
                     ShowModal(false);
                 }
-            }else{
+            } else {
                 ShowModal(false);
             }
-        }else{
+        } else {
             ShowModal(false);
-        }  
+        }
     }
-    function separador(cadena1,indicador){
+
+    function separador(cadena1, indicador) {
         var arrayCadenas = cadena1.split(indicador);
         return arrayCadenas;
     }
@@ -502,8 +513,8 @@
     }
 
     function local() {
-        var con = localStorage.getItem('ids'); 
-        var nivel = localStorage.getItem('nivel'); 
+        var con = localStorage.getItem('ids');
+
         $.ajax({
             type: "POST",
             url: "quiestion/json",
@@ -524,6 +535,7 @@
                     dataType: 'json',
                     success: function(result) {
                         iniciarJuego(result[data[0]])
+                        currentQuestion = result[data[0]]
                     },
                     error: function(error) {
                         alert(error);
@@ -590,6 +602,38 @@
 
     }, 0)
 
+    function setScore() {
+        console.log('entro????????? o no1?')
+        switch (nivel) {
 
+            case 'Facil':
+                console.log('entro????????? o no2?')
+                localStorage.setItem('scoreFacil', Number(scoreFacil) + 2);
+                break;
+            case 'Normal':
+                localStorage.setItem('scoreNormal', Number(scoreNormal) + 2);
+                break;
+            case 'Dificil':
+                switch (currentQuestion.id) {
+                    case 0:
+                        localStorage.setItem('scoreNormal', Number(scoreNormal) + 6);
+                        break;
+                    case 1:
+                        localStorage.setItem('scoreNormal', Number(scoreNormal) + 6);
+                        break;
+                    case 2:
+                        localStorage.setItem('scoreNormal', Number(scoreNormal) + 8);
+                        break;
+
+                    default:
+                        break;
+                }
+                localStorage.setItem('scoreDificil', Number(scoreDificil) + 2)
+                break;
+            default:
+                break;
+        }
+
+    }
 </script>
 <?php require "view/footer.php"; ?>
