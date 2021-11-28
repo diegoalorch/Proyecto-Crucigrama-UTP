@@ -1,4 +1,5 @@
 <?php require "view/header.php"; ?>
+<?php $data = json_decode(file_get_contents("question.json"), true); ?>
 <style>
     .item {
         position: relative;
@@ -121,7 +122,7 @@
         box-shadow: 0 .2em gray;
     }
 </style>
-<audio type="audio/mp3" id="audio_answer" controls>
+<audio type="audio/mp3" id="audio_answer">
     <!-- <source src="<?php echo $GLOBALS['BASE_URL'] ?>publico/audio/asnwer_correct.mp3" type="audio/mp3"> -->
 </audio>
 <div class="superior">
@@ -247,11 +248,7 @@
     var letras_respuestas;
     var completado;
 
-    function iniciarJuego(result) {
-        if (result == null) {
-            //Nivel ten xd :3 yatamos ya :3 yatamos ya
-            console.log("no hay nada tu vida no vale ")
-        }
+    function iniciarJuego(result) {        
         console.log(result)
         const question = document.querySelector('#question');
         question.innerHTML = (result.question)
@@ -289,7 +286,6 @@
                         $(this).remove();
                         try {
                             document.querySelector("." + event.target.textContent).className = "letra shadow p-1 bg-white rounded"
-                            alert("asd")
                         } catch (error) {
                             console.log(error)
                         }
@@ -389,7 +385,7 @@
         }
     }
 
-    var keyword = "";
+    var keyword="";
     var keyword_1 = "";
     var keyword_2 = "";
     var keyword_3 = "";
@@ -451,10 +447,12 @@
         console.log(keyword);
         var input = $(".answer_writing").val();
         var newinput = "l " + input + " l"
-        console.log(input);
+        console.log(newinput);
         console.log("====================");
         if (newinput.toLowerCase().match(keyword.toLowerCase())) {
-            console.log("ponwer el modal de correcto")
+            ShowModal(true);
+        }else{
+            ShowModal(false); 
         }
     }
 
@@ -472,16 +470,26 @@
         for (let i = 0; i < newinput.length; i++) {
             if (newinput[i].length > 2) {
                 i2 = i2 + 1;
-                console.log("Hola please");
                 if (i2 == 1) {
-                    writing_1 = "t " + newinput[i];
+                    writing_1 = " t " + newinput[i];
                 } else if (i2 == 2) {
-                    writing_2 = "t " + newinput[i];
+                    writing_2 = " t " + newinput[i];
                 } else if (i2 == 3) {
-                    writing_3 = "t " + newinput[i];
+                    writing_3 = " t " + newinput[i];
+                }else if(i2 == 4) {
+                    writing_3 = writing_3+ " " + newinput[i];
                 }
             }
         }
+        console.log("==================WRITING ========")
+        console.log(writing_1)
+        console.log(writing_2)
+        console.log(writing_3)
+        console.log("==================aNSWER ========")
+        console.log(keyword_1)
+        console.log(keyword_2)
+        console.log(keyword_3)
+
         if (writing_1.toLowerCase().match(keyword_1.toLowerCase())) {
             console.log("Primer ");
             if (writing_2.toLowerCase().match(keyword_2.toLowerCase())) {
@@ -556,8 +564,15 @@
                     },
                     dataType: 'json',
                     success: function(result) {
-                        iniciarJuego(result[data[0]])
-                        currentQuestion = result[data[0]]
+                        console.log("==================================");
+                        console.log(result);
+                        console.log(result.length);
+                        if (result.length <= 0) {
+                            nivel_complete();    
+                        }else{
+                            iniciarJuego(result[data[0]])
+                            currentQuestion = result[data[0]]
+                        }
                     },
                     error: function(error) {
                         alert(error);
@@ -656,6 +671,78 @@
                 break;
         }
 
+    }
+
+    function nivel_complete(){
+        switch (nivel) {
+
+            case 'Facil':
+                console.log('entro????????? o no2?')
+                localStorage.setItem('scoreFacil', Number(scoreFacil) + 2);
+                break;
+            case 'Normal':
+                localStorage.setItem('scoreNormal', Number(scoreNormal) + 2);
+                break;
+            case 'Dificil':
+                switch (currentQuestion.id) {
+                    case 0:
+                        localStorage.setItem('scoreNormal', Number(scoreNormal) + 6);
+                        break;
+                    case 1:
+                        localStorage.setItem('scoreNormal', Number(scoreNormal) + 6);
+                        break;
+                    case 2:
+                        localStorage.setItem('scoreNormal', Number(scoreNormal) + 8);
+                        break;
+
+                    default:
+                        break;
+                }
+                localStorage.setItem('scoreDificil', Number(scoreDificil) + 2)
+                break;
+            default:
+                break;
+            }
+    }
+
+    function nivel_complete() {
+        Swal.fire({
+            title: 'Nivel ' + nivel + ' Completado!',
+            text: 'Nivel ' + nivel + ' Completado!',
+            imageUrl: (nivel == "Facil") 
+                        ? '<?php echo $GLOBALS['BASE_URL'] ?>publico/img/score/' + 1 + '-' + scoreFacil + '.png'
+                        : (nivel =="Normal") 
+                            ? '<?php echo $GLOBALS['BASE_URL'] ?>publico/img/score/' + 2 + '-' + scoreNormal + '.png'
+                            : '<?php echo $GLOBALS['BASE_URL'] ?>publico/img/score/' + 3 + '-' + scoreDificil + '.png',
+            imageHeight: 150,
+            imageAlt: 'Custom image',
+            confirmButtonText: 'Continuar',
+            showLoaderOnConfirm: true,
+        }).then((result) => {
+            if (result.isConfirmed) {
+                if (nivel == "Facil") {
+                    const ids2 = [<?php foreach ($data["Normal"] as $valor) { ?>
+                            <?php echo $valor["id"] . "," ?>
+                        <?php } ?>
+                    ]
+                    localStorage.setItem("ids", ids2)
+                    localStorage.setItem("nivel", "Normal")
+                    localStorage.setItem('scoreNormal', 0)
+                    location.reload();
+                } else if (nivel == "Normal") {
+                    const ids3 = [<?php foreach ($data["Dificil"] as $valor) { ?>
+                        <?php echo $valor["id"] . "," ?>
+                        <?php } ?>
+                    ]
+                    localStorage.setItem("nivel", "Dificil")
+                    localStorage.setItem("ids", ids3)
+                    localStorage.setItem('scoreDificil', 0)
+                    location.reload();
+                }else{
+                    location.href = url + 'menu';
+                }
+            }
+        })
     }
 </script>
 <?php require "view/footer.php"; ?>
