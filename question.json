@@ -210,7 +210,7 @@
             "id": 1,
             "question": " La fórmula para hallar la energía potencial gravitatoria es masa por ___________ y por altura.",
             "imagen": "publico/img/level_2/P2.png",
-            "answer": "gravedad (Epg=m.g.h)",
+            "answer": "gravedad",
             "tipoPregunta": "3"
         }, {
             "id": 2,
@@ -228,13 +228,13 @@
             "id": 4,
             "question": "¿La energía mecánica cuantas energías engloba?(orden)",
             "imagen": "publico/img/level_2/P5.gif",
-            "answer": "la elástica, la cinética y la potencial gravitatoria",
+            "answer": "la elastica, la cinetica y la potencial gravitatoria",
             "tipoPregunta": "3"
         }, {
             "id": 5,
             "question": "Movimiento que se repite regularmente a iguales intervalos de tiempo",
             "imagen": "publico/img/level_2/P6.gif",
-            "answer": "Movimiento Periódico",
+            "answer": "Movimiento Periodico",
             "tipoPregunta": "3"
         }, {
             "id": 6,
@@ -260,7 +260,7 @@
                     "iscorrect": false
                 }
             ],
-            "tipoPregunta": "1"
+            "tipoPregunta": "2"
         }, {
             "id": 8,
             "question": "¿Cuál de las fuerza hace mayor trabajo para lograr un desplazamiento Δr⃗?",
@@ -283,7 +283,7 @@
                     "iscorrect": false
                 }
             ],
-            "tipoPregunta": "1"
+            "tipoPregunta": "2"
         }
     ],
     "Dificil": [{
