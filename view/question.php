@@ -33,6 +33,7 @@
 
     .superior {
         display: flex;
+        align-items: center;
     }
 
     .letra {
@@ -42,6 +43,7 @@
         text-align: center;
         border-radius: 10px;
         text-transform: uppercase;
+
     }
 
     #letras__contenedor {
@@ -61,15 +63,16 @@
     }
 
     #medio {
-        background-color: orchid !important;
         display: flex;
         width: 100%;
         gap: 10px;
         justify-content: center;
-    }
-
-    .hover {
-        background: orange;
+        font-size: 2rem;
+        font-weight: bold;
+        text-shadow: -1px -1px black, 1px 1px white;
+        color: gray;
+        border-radius: 7px;
+        
     }
 
     .pointter {
@@ -98,6 +101,24 @@
         border-radius: 7px;
         box-shadow: 0 .2em gray;
         cursor: pointer;
+    }
+
+    .teclado {
+        height: auto;
+        font-size: 2rem;
+        text-align: center;
+        display: inline-block;
+        margin: 20px;
+        font-weight: bold;
+        padding: 10px 0 10px 0;
+        background-color: lightgray;
+        text-shadow: -1px -1px black, 1px 1px white;
+        color: gray;
+        -webkit-border-radius: 7px;
+        -moz-border-radius: 7px;
+        -o-border-radius: 7px;
+        border-radius: 7px;
+        box-shadow: 0 .2em gray;
     }
 </style>
 <audio type="audio/mp3" id="audio_answer" controls>
@@ -258,7 +279,8 @@
                 const div = document.createElement('div');
                 div.className = 'letra shadow p-1 bg-white rounded pointter';
                 div.id = letter_id;
-                div.innerHTML = ("<h3>" + letras_abecedario[index] + "</h3>")
+                div.innerHTML = ("<h3 style='font-weight: bold !important;'>" + letras_abecedario[index] + "</h3>")
+                letras__contenedor.classList.add('teclado');
                 letras__contenedor.appendChild(div)
                 letras_abecedario.splice(index, 1);
                 $(".pointter").on("click", function(event) {

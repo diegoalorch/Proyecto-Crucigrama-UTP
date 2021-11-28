@@ -1,4 +1,4 @@
 <?php
-   $GLOBALS['BASE_URL'] = 'http://localhost/';
+   $GLOBALS['BASE_URL'] = 'http://proyecto_utp.test/';
    
 ?>

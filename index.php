@@ -5,7 +5,6 @@ require 'direccion.php';
 require_once './controlador/menu_controller.php';
 require_once './controlador/nivel_controller.php';
 require_once './controlador/question_controller.php';
-
 $uriSplit = explode('/', $_SERVER['REQUEST_URI']);
 $code = explode('/', $_SERVER['REQUEST_URI']);
 if (isset($uriSplit[1]) && isset($uriSplit[2])) {
@@ -45,8 +44,8 @@ if (isset($uriSplit[1]) && isset($uriSplit[2])) {
             }
             break;
         default:
-        menu_controller::index();
-        break;
+            menu_controller::index();
+            break;
     }
 } else {
     $controlador = $uriSplit[1];
