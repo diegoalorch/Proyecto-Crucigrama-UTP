@@ -25,10 +25,11 @@
         transition: all 1s linear;
     }
 
-    #cronometro {
+    .cronometro {
         position: relative;
-        top: 50%;
-        left: 50%;
+        top: -55%;
+        left: -40%;
+        background-color: #a24949d9 !important;
     }
 
     .contenedor {
@@ -218,6 +219,11 @@
         font-weight: bold;
     }
 
+    .blobstatic {
+        transform: scale(1.5);
+        background-color: #90caef00 !important;
+    }
+
     .blob {
         transform: scale(1);
         animation: pulse 2s infinite;
@@ -335,6 +341,7 @@
     audio.currentTime = time_audio;
     audio.play();
     var imgAnsword = '';
+
     function ShowModal(gano) {
         var audio_answer = document.getElementById("audio_answer");
         if (!gano) {
@@ -346,7 +353,7 @@
             Swal.fire({
                 title: 'Respuesta incorrecta!',
                 text: 'Mejor suerte para la proxima!',
-                imageUrl: imgAnsword.length<=0? '<?php echo $GLOBALS['BASE_URL'] ?>publico/img/img/first_character.png' : '<?php echo $GLOBALS['BASE_URL'] ?>'+imgAnsword,
+                imageUrl: imgAnsword.length <= 0 ? '<?php echo $GLOBALS['BASE_URL'] ?>publico/img/img/first_character.png' : '<?php echo $GLOBALS['BASE_URL'] ?>' + imgAnsword,
                 imageHeight: 300,
                 imageAlt: 'Custom image',
                 confirmButtonText: 'Continuar',
@@ -366,7 +373,7 @@
             Swal.fire({
                 title: 'Congratulations!',
                 text: 'Increible respuesta correcta!',
-                imageUrl:imgAnsword.length<=0? '<?php echo $GLOBALS['BASE_URL'] ?>publico/img/img/first_character.png' : '<?php echo $GLOBALS['BASE_URL'] ?>'+imgAnsword,
+                imageUrl: imgAnsword.length <= 0 ? '<?php echo $GLOBALS['BASE_URL'] ?>publico/img/img/first_character.png' : '<?php echo $GLOBALS['BASE_URL'] ?>' + imgAnsword,
                 imageHeight: 300,
                 imageAlt: 'Custom image',
                 confirmButtonText: 'Continuar',
@@ -393,7 +400,7 @@
             question.appendChild(questionWithImagen)
         }
         if (result.answerImg) {
-            imgAnsword=result.answerImg
+            imgAnsword = result.answerImg
         }
         const imagen1 = document.querySelector('#idimg');
         imagen1.innerHTML = ('<img src=<?php echo $GLOBALS['BASE_URL'] ?>' + result.imagen + ' width=250/>')
@@ -797,6 +804,13 @@
             $('h2').text(i);
             if (i == 25) {
                 $('#cronometro').addClass("blob")
+            }
+            if (i == 28) {
+                $('#cronometro').removeClass(' blob ').addClass('cronometro blobstatic').empty().prepend('<img id="theImg" style="height: 70vh;" src="https://acegif.com/wp-content/uploads/gif-explosion-20.gif" />')
+
+            }
+            if (i == 30) {
+                ShowModal(false)
             }
             if (i == time) {
                 clearInterval(interval);
