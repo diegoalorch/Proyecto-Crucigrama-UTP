@@ -24,10 +24,13 @@
         stroke-dashoffset: 440;
         transition: all 1s linear;
     }
-    #cronometro{
+
+    #cronometro {
         position: relative;
-        top: 50%; left: 50%;
+        top: 50%;
+        left: 50%;
     }
+
     .contenedor {
         width: 500px;
         height: 200px;
@@ -184,6 +187,37 @@
         box-shadow: 0 .2em gray;
     }
 
+    #x2answer {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        text-align: center;
+        /* justify-content: space-between; */
+    }
+
+    .input_x1 {
+        width: 20vw;
+    }
+
+    .input_x2 {
+        width: 20vw;
+    }
+
+    .title_x1 {
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    .title_x2 {
+        padding-left: 30px;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
     .blob {
         transform: scale(1);
         animation: pulse 2s infinite;
@@ -236,6 +270,7 @@
 </div>
 <div id="answer_container"></div>
 <div id="writing_container"></div>
+<div id="x2answer"></div>
 <div class="modal fade bd-example-modal-lg" id="modalWin" tabindex="-1" role="dialog" aria-labelledby="modalWinLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -415,7 +450,28 @@
             write_answer(result);
             medio.appendChild(div);
         } else {
-
+            const x1 = document.createElement('input');
+            const x2 = document.createElement('input');
+            const x11 = document.createElement('span');
+            const x21 = document.createElement('span');
+            const button1 = document.createElement('button');
+            document.getElementById('x2answer').appendChild(x11);
+            document.getElementById('x2answer').appendChild(x1);
+            document.getElementById('x2answer').appendChild(x21);
+            document.getElementById('x2answer').appendChild(x2);
+            x1.placeholder = "Ingresa tu valor";
+            x2.placeholder = "Ingresa tu valor";
+            x11.innerHTML = "x1";
+            x21.innerHTML = "x2";
+            x1.className = "form-control input_x1";
+            x2.className = "form-control input_x2";
+            x11.className = "title_x1";
+            x21.className = "title_x2";
+            document.getElementById('button_VA').appendChild(button1);
+            button1.setAttribute('onclick', 'validardoblerespuesta()');
+            button1.className = "btn btn-outline-secondary button_1";
+            button1.innerHTML = "Siguiente";
+            answer_doble(result);
         }
 
     }
@@ -851,6 +907,39 @@
                 }
             }
         })
+    }
+    var datax1x2;
+
+    function answer_doble(result) {
+        // x1.className = "input_x1";
+        // x2.className = "input_x2";
+        // x11.className = "title_x1";
+        // x21.className = "title_x2";
+        datax1x2 = separador(result.answer, ",");
+    }
+
+    function validardoblerespuesta() {
+        var input1 = $(".input_x1").val();
+        var input2 = $(".input_x2").val();
+        console.log(input1);
+        console.log(input2);
+        console.log("data 1" + datax1x2[1]);
+        console.log("data 2" + datax1x2[2]);
+        if (input1 == datax1x2[0]) {
+            if (input2 == datax1x2[1]) {
+                ShowModal(true)
+            } else {
+                ShowModal(false);
+            }
+        } else if (input2 == datax1x2[0]) {
+            if (input1 == datax1x2[1]) {
+                ShowModal(true)
+            } else {
+                ShowModal(false);
+            }
+        } else {
+            ShowModal(false);
+        }
     }
 </script>
 <?php require "view/footer.php"; ?>
