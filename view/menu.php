@@ -34,8 +34,8 @@
 </div>
 <div class="col-12" style="margin-top: 180px;">
     <div class="row justify-content-center"><span onclick="location.href='<?php echo $GLOBALS['BASE_URL'] ?>menu/personaje';play1()" class="start-btn">Jugar</span></div>
-    <div class="row justify-content-center"><span onclick="location.href='<?php echo $GLOBALS['BASE_URL'] ?>niveles';play1()" class="start-btn">Niveles</span></div>
-    <div class="row justify-content-center"><span onclick="location.href='<?php echo $GLOBALS['BASE_URL'] ?>menu/score'" class="start-btn">Salir</span></div>
+    <div class="row justify-content-center"><span onclick="location.href='<?php echo $GLOBALS['BASE_URL'] ?>niveles';play1()" class="start-btn">Instrucciones</span></div>
+    <div class="row justify-content-center"><span onclick="location.href='<?php echo $GLOBALS['BASE_URL'] ?>menu/score'" class="start-btn">Score</span></div>
 </div>
 
 <script>
