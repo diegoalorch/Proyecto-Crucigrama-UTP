@@ -334,7 +334,7 @@
     console.log("Audio= " + time_audio);
     audio.currentTime = time_audio;
     audio.play();
-
+    var imgAnsword = '';
     function ShowModal(gano) {
         var audio_answer = document.getElementById("audio_answer");
         if (!gano) {
@@ -346,7 +346,7 @@
             Swal.fire({
                 title: 'Respuesta incorrecta!',
                 text: 'Mejor suerte para la proxima!',
-                imageUrl: '<?php echo $GLOBALS['BASE_URL'] ?>publico/img/img/first_charcter_B.jpg',
+                imageUrl: imgAnsword.length<=0? '<?php echo $GLOBALS['BASE_URL'] ?>publico/img/img/first_character.png' : '<?php echo $GLOBALS['BASE_URL'] ?>'+imgAnsword,
                 imageHeight: 300,
                 imageAlt: 'Custom image',
                 confirmButtonText: 'Continuar',
@@ -366,7 +366,7 @@
             Swal.fire({
                 title: 'Congratulations!',
                 text: 'Increible respuesta correcta!',
-                imageUrl: '<?php echo $GLOBALS['BASE_URL'] ?>publico/img/img/first_character.png',
+                imageUrl:imgAnsword.length<=0? '<?php echo $GLOBALS['BASE_URL'] ?>publico/img/img/first_character.png' : '<?php echo $GLOBALS['BASE_URL'] ?>'+imgAnsword,
                 imageHeight: 300,
                 imageAlt: 'Custom image',
                 confirmButtonText: 'Continuar',
@@ -391,6 +391,9 @@
             questionWithImagen.setAttribute('src', result.img)
             questionWithImagen.setAttribute('height', "150px")
             question.appendChild(questionWithImagen)
+        }
+        if (result.answerImg) {
+            imgAnsword=result.answerImg
         }
         const imagen1 = document.querySelector('#idimg');
         imagen1.innerHTML = ('<img src=<?php echo $GLOBALS['BASE_URL'] ?>' + result.imagen + ' width=250/>')
