@@ -323,7 +323,6 @@
 
 </div>
 <div id="button_VA"></div>
-<button onclick="borrarArray()"></button>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>
@@ -759,30 +758,34 @@
             success: function(data) {
                 console.log("data");
                 console.log(data);
-                $.ajax({
-                    type: "POST",
-                    url: "quiestion/filtrador",
-                    data: {
-                        data: data[0],
-                        nivel: nivel
-                    },
-                    dataType: 'json',
-                    success: function(result) {
-                        console.log("==================================");
-                        console.log(result);
-                        console.log(result.length);
-                        if (result.length <= 0) {
-                            nivel_complete();
-                        } else {
-                            iniciarJuego(result[data[0]])
-                            currentQuestion = result[data[0]]
+                if (data[0].length > 0) {
+                    $.ajax({
+                        type: "POST",
+                        url: "quiestion/filtrador",
+                        data: {
+                            data: data[0],
+                            nivel: nivel
+                        },
+                        dataType: 'json',
+                        success: function(result) {
+                            console.log("==================================");
+                            console.log(result);
+                            console.log(result.length);
+                            if (result.length <= 0) {
+                                nivel_complete();
+                            } else {
+                                iniciarJuego(result[data[0]])
+                                currentQuestion = result[data[0]]
+                            }
+                        },
+                        error: function(error) {
+                            alert(error);
+                            console.log(error);
                         }
-                    },
-                    error: function(error) {
-                        alert(error);
-                        console.log(error);
-                    }
-                });
+                    });
+                }else{
+                    nivel_complete();
+                }
             },
             error: function(error) {
                 alert(error);
@@ -837,19 +840,19 @@
             case 'Dificil':
                 switch (currentQuestion.id) {
                     case 0:
-                        localStorage.setItem('scoreNormal', Number(scoreNormal) + 6);
+                        localStorage.setItem('scoreDificil', Number(scoreDificil) + 6);
                         break;
                     case 1:
-                        localStorage.setItem('scoreNormal', Number(scoreNormal) + 6);
+                        localStorage.setItem('scoreDificil', Number(scoreDificil) + 6);
                         break;
                     case 2:
-                        localStorage.setItem('scoreNormal', Number(scoreNormal) + 8);
+                        localStorage.setItem('scoreDificil', Number(scoreDificil) + 8);
                         break;
 
                     default:
                         break;
                 }
-                localStorage.setItem('scoreDificil', Number(scoreDificil) + 2)
+                // localStorage.setItem('scoreDificil', Number(scoreDificil) + 2)
                 break;
             default:
                 break;
@@ -857,37 +860,37 @@
 
     }
 
-    function nivel_complete() {
-        switch (nivel) {
+    // function nivel_complete() {
+    //     switch (nivel) {
 
-            case 'Facil':
-                console.log('entro????????? o no2?')
-                localStorage.setItem('scoreFacil', Number(scoreFacil) + 2);
-                break;
-            case 'Normal':
-                localStorage.setItem('scoreNormal', Number(scoreNormal) + 2);
-                break;
-            case 'Dificil':
-                switch (currentQuestion.id) {
-                    case 0:
-                        localStorage.setItem('scoreNormal', Number(scoreNormal) + 6);
-                        break;
-                    case 1:
-                        localStorage.setItem('scoreNormal', Number(scoreNormal) + 6);
-                        break;
-                    case 2:
-                        localStorage.setItem('scoreNormal', Number(scoreNormal) + 8);
-                        break;
+    //         case 'Facil':
+    //             console.log('entro????????? o no2?')
+    //             localStorage.setItem('scoreFacil', Number(scoreFacil) + 2);
+    //             break;
+    //         case 'Normal':
+    //             localStorage.setItem('scoreNormal', Number(scoreNormal) + 2);
+    //             break;
+    //         case 'Dificil':
+    //             switch (currentQuestion.id) {
+    //                 case 0:
+    //                     localStorage.setItem('scoreDificil', Number(scoreDificil) + 6);
+    //                     break;
+    //                 case 1:
+    //                     localStorage.setItem('scoreDificil', Number(scoreDificil) + 6);
+    //                     break;
+    //                 case 2:
+    //                     localStorage.setItem('scoreDificil', Number(scoreDificil) + 8);
+    //                     break;
 
-                    default:
-                        break;
-                }
-                localStorage.setItem('scoreDificil', Number(scoreDificil) + 2)
-                break;
-            default:
-                break;
-        }
-    }
+    //                 default:
+    //                     break;
+    //             }
+    //             // localStorage.setItem('scoreDificil', Number(scoreDificil) + 2)
+    //             break;
+    //         default:
+    //             break;
+    //     }
+    // }
 
     function nivel_complete() {
         Swal.fire({
@@ -941,8 +944,8 @@
         var input2 = $(".input_x2").val();
         console.log(input1);
         console.log(input2);
-        console.log("data 1" + datax1x2[1]);
-        console.log("data 2" + datax1x2[2]);
+        console.log("data 1 " + datax1x2[0]);
+        console.log("data 2 " + datax1x2[1]);
         if (input1 == datax1x2[0]) {
             if (input2 == datax1x2[1]) {
                 ShowModal(true)

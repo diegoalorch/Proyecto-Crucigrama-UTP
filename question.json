@@ -305,7 +305,7 @@
         "id": 0,
         "question": "El bombero sostiene la manguera en ángulo de 30ₒ con la horizontal, y el agua se descarga de la manguera en A con una velocidad de VA = 40 ft/s Si la corriente de agua golpea el edificio en B, determine sus dos distancias posibles desde el edificio.",
         "imagen": "publico/img/level_3/P1.png",
-        "answer": "-5,5",
+        "answer": "34.38,8.66",
         "answerImg": "publico/img/level_3/P1-solu.png",
         "tipoPregunta": "4"
     }, {
@@ -317,7 +317,7 @@
         "tipoPregunta": "3"
     }, {
         "id": 2,
-        "question": "Una bola de boliche rueda sin deslizamiento sobre una superficie horizontal a 2.0 m/s. Después sube por una pendiente sin deslizamiento hasta cierta altura antes de alcanzar momentáneamente el reposo y volver rodando hacia atrás, calcule la altura.(Separa decimal con '.')",
+        "question": "Determina el momento de inercia del sistema conformado por 5 esferitas iguales de 2kg despreciando sus dimensiones.(Separa decimal con '.')",
         "imagen": "publico/img/level_3/P3.png",
         "answer": "0.28",
         "answerImg": "publico/img/level_3/P3-solu.png",
