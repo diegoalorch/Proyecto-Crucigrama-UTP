@@ -29,7 +29,16 @@
         width: 500px;
         height: 200px;
         background-color: blueviolet;
-        margin: 50px;
+        margin-top: 50px;
+        margin-left: 50px;
+        margin-right: 50px;
+        margin-bottom: 20px !important;
+    }
+
+    #vidas {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
     }
 
     .superior {
@@ -73,7 +82,7 @@
         text-shadow: -1px -1px black, 1px 1px white;
         color: gray;
         border-radius: 7px;
-        
+
     }
 
     .pointter {
@@ -91,8 +100,8 @@
         max-height: 78px;
         font-size: 1.5rem;
         text-align: center;
-        align-items:center;
-        justify-content:center;
+        align-items: center;
+        justify-content: center;
         margin: 20px;
         font-weight: bold;
         padding: 10px 0 10px 0;
@@ -105,12 +114,13 @@
         border-radius: 7px;
         box-shadow: 0 .2em gray;
         cursor: pointer;
-        flex-wrap : nowrap;
+        flex-wrap: nowrap;
     }
-    #answer_container{
+
+    #answer_container {
         display: flex;
-        flex-wrap : wrap;
-        
+        flex-wrap: wrap;
+
     }
 
     .teclado {
@@ -142,6 +152,8 @@
     <div class="item html" id="idimg">
         <!-- <img src="<?php echo $GLOBALS['BASE_URL'] ?>publico/img/level_1/P1.gif" alt="this slowpoke moves"  width="250" id="idimg"/> -->
     </div>
+</div>
+<div id="vidas">
 </div>
 <div id="medio">
 </div>
@@ -199,12 +211,14 @@
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>
-    localStorage.setItem('background',"<?php echo $GLOBALS['BASE_URL'] ?>publico/img/play_background.png");
+    localStorage.setItem('background', "<?php echo $GLOBALS['BASE_URL'] ?>publico/img/play_background.png");
     var audio = document.getElementById("audio");
     var time_audio = localStorage.getItem("audio");
     const scoreFacil = localStorage.getItem('scoreFacil');
     const scoreNormal = localStorage.getItem('scoreNormal');
     const scoreDificil = localStorage.getItem('scoreDificil');
+    var viditas = 3;
+    var viditasPerdidas = 0;
     var currentQuestion;
     var nivel = localStorage.getItem('nivel');
     console.log("Audio= " + time_audio);
@@ -258,7 +272,7 @@
     var letras_respuestas;
     var completado;
 
-    function iniciarJuego(result) {        
+    function iniciarJuego(result) {
         console.log(result)
         const question = document.querySelector('#question');
         question.innerHTML = (result.question)
@@ -272,6 +286,7 @@
         imagen1.innerHTML = ('<img src=<?php echo $GLOBALS['BASE_URL'] ?>' + result.imagen + ' width=250/>')
 
         if (result.tipoPregunta == 1) {
+            setVidas()
             //cricigrama
             console.log(result)
             letras_respuestas = (result.answer).split('');
@@ -285,28 +300,12 @@
                 const index = Math.floor(Math.random() * letras_abecedario.length);
                 const div = document.createElement('div');
                 div.className = 'letra shadow p-1 bg-white rounded pointter';
-                div.id = letter_id;
+                div.id = 'divLetra' + letter_id;
                 div.innerHTML = ("<h3 style='font-weight: bold !important;'>" + letras_abecedario[index] + "</h3>")
+                div.setAttribute('onclick', "validacaionText('" + letras_abecedario[index] + "','divLetra" + letter_id + "')")
                 letras__contenedor.classList.add('teclado');
                 letras__contenedor.appendChild(div)
                 letras_abecedario.splice(index, 1);
-                $(".pointter").on("click", function(event) {
-                    console.log(event.target.textContent)
-                    if (validarArray(event.target.textContent)) {
-                        $(this).remove();
-                        try {
-                            document.querySelector("." + event.target.textContent).className = "letra shadow p-1 bg-white rounded"
-                        } catch (error) {
-                            console.log(error)
-                        }
-                        validarRespuesta();
-                    }
-                    /* else{
-                                    alert("Esta letra no se encuentra en la palabra")
-                                } */
-
-                    event.preventDefault();
-                });
                 letter_id++
             }
             console.log(medio);
@@ -344,6 +343,47 @@
 
     }
 
+    function setVidas() {
+        if (viditasPerdidas<=3) {
+            const vidas = document.querySelector('#vidas')
+            while (vidas.firstChild) {
+                vidas.removeChild(vidas.firstChild);
+            }
+            for (let i = 0; i < viditas; i++) {
+                const o = document.createElement('h3')
+                o.textContent = 'O'
+                vidas.appendChild(o)
+            }
+            for (let i = 0; i < viditasPerdidas; i++) {
+                const x = document.createElement('h3')
+                x.textContent = 'X'
+                vidas.appendChild(x)
+            }
+        }else{
+            ShowModal(false)
+        }
+    }
+
+    function validacaionText(letra, idDiv) {
+        console.log(letra, idDiv)
+
+        if (validarArray(letra)) {
+            document.getElementById(idDiv).remove();
+            let id = idDiv.slice(8, idDiv.length);
+            console.log(id)
+            try {
+                document.querySelector("." + letra).className = "letra shadow p-1 bg-white rounded"
+            } catch (error) {
+                console.log(error)
+            }
+            validarRespuesta();
+        } else {
+            viditasPerdidas++;
+            viditas--;
+            setVidas()
+            console.log('respuesta incorecta')
+        }
+    }
     /*Start Options*/
     function loopDivs(result2) {
         for (let i = 0; i < result2.length; i++) {
@@ -395,7 +435,7 @@
         }
     }
 
-    var keyword="";
+    var keyword = "";
     var keyword_1 = "";
     var keyword_2 = "";
     var keyword_3 = "";
@@ -461,8 +501,8 @@
         console.log("====================");
         if (newinput.toLowerCase().match(keyword.toLowerCase())) {
             ShowModal(true);
-        }else{
-            ShowModal(false); 
+        } else {
+            ShowModal(false);
         }
     }
 
@@ -486,8 +526,8 @@
                     writing_2 = " t " + newinput[i];
                 } else if (i2 == 3) {
                     writing_3 = " t " + newinput[i];
-                }else if(i2 == 4) {
-                    writing_3 = writing_3+ " " + newinput[i];
+                } else if (i2 == 4) {
+                    writing_3 = writing_3 + " " + newinput[i];
                 }
             }
         }
@@ -578,8 +618,8 @@
                         console.log(result);
                         console.log(result.length);
                         if (result.length <= 0) {
-                            nivel_complete();    
-                        }else{
+                            nivel_complete();
+                        } else {
                             iniciarJuego(result[data[0]])
                             currentQuestion = result[data[0]]
                         }
@@ -683,7 +723,7 @@
 
     }
 
-    function nivel_complete(){
+    function nivel_complete() {
         switch (nivel) {
 
             case 'Facil':
@@ -712,18 +752,16 @@
                 break;
             default:
                 break;
-            }
+        }
     }
 
     function nivel_complete() {
         Swal.fire({
             title: 'Nivel ' + nivel + ' Completado!',
             text: 'Nivel ' + nivel + ' Completado!',
-            imageUrl: (nivel == "Facil") 
-                        ? '<?php echo $GLOBALS['BASE_URL'] ?>publico/img/score/' + 1 + '-' + scoreFacil + '.png'
-                        : (nivel =="Normal") 
-                            ? '<?php echo $GLOBALS['BASE_URL'] ?>publico/img/score/' + 2 + '-' + scoreNormal + '.png'
-                            : '<?php echo $GLOBALS['BASE_URL'] ?>publico/img/score/' + 3 + '-' + scoreDificil + '.png',
+            imageUrl: (nivel == "Facil") ?
+                '<?php echo $GLOBALS['BASE_URL'] ?>publico/img/score/' + 1 + '-' + scoreFacil + '.png' : (nivel == "Normal") ?
+                '<?php echo $GLOBALS['BASE_URL'] ?>publico/img/score/' + 2 + '-' + scoreNormal + '.png' : '<?php echo $GLOBALS['BASE_URL'] ?>publico/img/score/' + 3 + '-' + scoreDificil + '.png',
             imageHeight: 150,
             imageAlt: 'Custom image',
             confirmButtonText: 'Continuar',
@@ -741,14 +779,14 @@
                     location.reload();
                 } else if (nivel == "Normal") {
                     const ids3 = [<?php foreach ($data["Dificil"] as $valor) { ?>
-                        <?php echo $valor["id"] . "," ?>
+                            <?php echo $valor["id"] . "," ?>
                         <?php } ?>
                     ]
                     localStorage.setItem("nivel", "Dificil")
                     localStorage.setItem("ids", ids3)
                     localStorage.setItem('scoreDificil', 0)
                     location.reload();
-                }else{
+                } else {
                     location.href = url + 'menu';
                 }
             }
