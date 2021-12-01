@@ -333,6 +333,7 @@
     const scoreFacil = localStorage.getItem('scoreFacil');
     const scoreNormal = localStorage.getItem('scoreNormal');
     const scoreDificil = localStorage.getItem('scoreDificil');
+    const character = localStorage.getItem('character');
     var viditas = 3;
     var viditasPerdidas = 0;
     var currentQuestion;
@@ -353,7 +354,7 @@
             Swal.fire({
                 title: 'Respuesta incorrecta!',
                 text: 'Mejor suerte para la proxima!',
-                imageUrl: imgAnsword.length <= 0 ? '<?php echo $GLOBALS['BASE_URL'] ?>publico/img/img/first_character.png' : '<?php echo $GLOBALS['BASE_URL'] ?>' + imgAnsword,
+                imageUrl: imgAnsword.length <= 0 ? '<?php echo $GLOBALS['BASE_URL'] ?>publico/img/character'+character+'/sad.png' : '<?php echo $GLOBALS['BASE_URL'] ?>' + imgAnsword,
                 imageHeight: 300,
                 imageAlt: 'Custom image',
                 confirmButtonText: 'Continuar',
@@ -373,7 +374,7 @@
             Swal.fire({
                 title: 'Congratulations!',
                 text: 'Increible respuesta correcta!',
-                imageUrl: imgAnsword.length <= 0 ? '<?php echo $GLOBALS['BASE_URL'] ?>publico/img/img/first_character.png' : '<?php echo $GLOBALS['BASE_URL'] ?>' + imgAnsword,
+                imageUrl: imgAnsword.length <= 0 ? '<?php echo $GLOBALS['BASE_URL'] ?>publico/img/character'+character+'/happy.png' : '<?php echo $GLOBALS['BASE_URL'] ?>' + imgAnsword,
                 imageHeight: 300,
                 imageAlt: 'Custom image',
                 confirmButtonText: 'Continuar',

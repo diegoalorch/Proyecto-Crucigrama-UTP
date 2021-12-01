@@ -9,6 +9,7 @@ function validar(character) {
     if (input_nickname.length > 0 && showSelect.length >= 0) {
         localStorage.removeItem("ids");
         localStorage.removeItem("nivel");
+        localStorage.removeItem("character");
         switch (showSelect) {
             case 'Facil':
                 localStorage.setItem("ids", ids1)
@@ -29,6 +30,7 @@ function validar(character) {
         }
 
         localStorage.setItem("nivel", showSelect)
+        localStorage.setItem("character", character)
         console.log(localStorage.getItem("ids1"))
         alert("Nickname validado y el select");
         location.href = url + 'quiestion';
