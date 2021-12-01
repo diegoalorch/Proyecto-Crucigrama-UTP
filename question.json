@@ -291,18 +291,25 @@
         "question": "El bombero sostiene la manguera en ángulo de 30ₒ con la horizontal, y el agua se descarga de la manguera en A con una velocidad de VA = 40 ft/s Si la corriente de agua golpea el edificio en B, determine sus dos distancias posibles desde el edificio.",
         "imagen": "publico/img/level_3/P1.png",
         "answer": "publico/img/level_3/P1-solu.png",
-        "tipoPregunta": "4"
+        "tipoPregunta": "3"
     }, {
         "id": 1,
         "question": "Una esfera lisa se lanza desde A con rapidez de 6 m/s y cuando pasa por B su energía cinética es igual a su energía potencial gravitatoria. Calcule el radio r de la superficie cilíndrica. ",
         "imagen": "publico/img/level_3/P2.png",
         "answer": "publico/img/level_3/P2-solu.png",
-        "tipoPregunta": "4"
+        "tipoPregunta": "3"
     }, {
         "id": 2,
         "question": "Una bola de boliche rueda sin deslizamiento sobre una superficie horizontal a 2.0 m/s. Después sube por una pendiente sin deslizamiento hasta cierta altura antes de alcanzar momentáneamente el reposo y volver rodando hacia atrás, calcule la altura.",
         "imagen": "publico/img/level_3/P3.png",
         "answer": "publico/img/level_3/P3-solu.png",
+        "tipoPregunta": "3"
+    }, {
+        "id": 3,
+        "question": "Una bola de boliche rueda sin deslizamiento sobre una superficie horizontal a 2.0 m/s. Después sube por una pendiente sin deslizamiento hasta cierta altura antes de alcanzar momentáneamente el reposo y volver rodando hacia atrás, calcule la altura.",
+        "imagen": "publico/img/level_3/P3.png",
+        "answer": "-5,5",
         "tipoPregunta": "4"
-    }]
+    }
+]
 }
