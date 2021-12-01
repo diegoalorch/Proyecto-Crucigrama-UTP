@@ -130,6 +130,44 @@
         border-radius: 7px;
         box-shadow: 0 .2em gray;
     }
+
+    #writing_container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .answer_writing{
+        width: 51vw;
+        height:50px;
+    }
+    
+    #button_VA{
+        padding-top: 10px;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+    .button_1{
+        text-align: center;
+        font-weight: bold;
+        font-size:2rem; 
+        width: 51vw;
+        height:auto;
+        text-align: center;
+        display: inline-block;
+        margin: 20px;
+        font-weight: bold;
+        padding: 10px 0 10px 0;
+        background-color: lightgray;
+        text-shadow: -1px -1px black, 1px 1px white;
+        color: gray;
+        -webkit-border-radius: 7px;
+        -moz-border-radius: 7px;
+        -o-border-radius: 7px;
+        border-radius: 7px;
+        box-shadow: 0 .2em gray;
+    }
 </style>
 <audio type="audio/mp3" id="audio_answer">
     <!-- <source src="<?php echo $GLOBALS['BASE_URL'] ?>publico/audio/asnwer_correct.mp3" type="audio/mp3"> -->
@@ -331,15 +369,17 @@
             loopDivs(result.answer);
             //letras_respuestas.splice(index, 1);
             // medio.appendChild(div);
-        } else {
+        } else if(result.tipoPregunta == 3){
             const question = document.querySelector('#example_write');
             const contenedor = document.querySelector('.contenedor');
             const medio = document.querySelector('#medio');
             const letras__contenedor = document.querySelector('#letras__contenedor');
             const div = document.createElement('div');
-            div.innerHTML = ("<h3> at Work </h3>")
+            div.innerHTML = ("<h3> Escribe tu respuesta </h3>")
             write_answer(result);
             medio.appendChild(div);
+        }else{
+            
         }
 
     }
@@ -373,7 +413,10 @@
     function write_answer(result2) {
         const writing = document.createElement('input');
         document.getElementById('writing_container').appendChild(writing);
-        writing.classList.add('answer_writing');
+        writing.className = "form-control answer_writing";
+        writing.setAttribute('placeholder','Ingresar respuesta')
+        // writing.classList.add('form-control answer_writing');
+    
         condition_text(result2);
     }
     var cadena = "";
@@ -384,13 +427,20 @@
             const question = document.querySelector('#question');
             question.removeChild;
             question.innerHTML = ("<span>" + result.question + "</span><br><br> Respuesta en orden alfabetico, ejemplo : La almendra, epidemia y los mamiferos");
-            console.log("tiene coma : Ejemplo y palabras clave");
-            const button_Va = document.querySelector('#button_VA');
             answer_with_comma();
-            button_Va.innerHTML = ("<button onclick=validarAnswert2()>Next Level 2</button>");
+            const button1 = document.createElement('button');
+            document.getElementById('button_VA').appendChild(button1);
+            button1.setAttribute('onclick', 'validarAnswert2()');
+            button1.className = "btn btn-outline-secondary button_1";
+            button1.innerHTML = "Siguiente 2";
+            // button_Va.innerHTML = ("<button class= onclick=validarAnswert2()>Next Level 2</button>");
         } else {
-            const button_Va = document.querySelector('#button_VA');
-            button_Va.innerHTML = ("<button onclick=validarAnswert1()>Next Level</button>");
+            const button2 = document.createElement('button');
+            document.getElementById('button_VA').appendChild(button2);
+            button2.setAttribute('onclick', 'validarAnswert1()');
+            button2.className = "btn btn-outline-secondary button_1";
+            button2.innerHTML = "Siguiente 1 ";
+            // button_Va.innerHTML = ("<button onclick=validarAnswert1()>Next Level</button>");
             answer_without_comma(cadena);
         }
     }
