@@ -24,7 +24,10 @@
         stroke-dashoffset: 440;
         transition: all 1s linear;
     }
-
+    #cronometro{
+        position: relative;
+        top: 50%; left: 50%;
+    }
     .contenedor {
         width: 500px;
         height: 200px;
@@ -141,29 +144,31 @@
         box-shadow: 0 .2em gray;
     }
 
-    #writing_container{
+    #writing_container {
         display: flex;
         align-items: center;
         justify-content: center;
     }
-    .answer_writing{
+
+    .answer_writing {
         width: 51vw;
-        height:50px;
+        height: 50px;
     }
-    
-    #button_VA{
+
+    #button_VA {
         padding-top: 10px;
-        display:flex;
+        display: flex;
         justify-content: center;
         align-items: center;
-        
+
     }
-    .button_1{
+
+    .button_1 {
         text-align: center;
         font-weight: bold;
-        font-size:2rem; 
+        font-size: 2rem;
         width: 51vw;
-        height:auto;
+        height: auto;
         text-align: center;
         display: inline-block;
         margin: 20px;
@@ -178,6 +183,28 @@
         border-radius: 7px;
         box-shadow: 0 .2em gray;
     }
+
+    .blob {
+        transform: scale(1);
+        animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(0.95);
+            box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+        }
+
+        50% {
+            transform: scale(1.5);
+            box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+        }
+
+        100% {
+            transform: scale(0.95);
+            box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+        }
+    }
 </style>
 <audio type="audio/mp3" id="audio_answer">
     <!-- <source src="<?php echo $GLOBALS['BASE_URL'] ?>publico/audio/asnwer_correct.mp3" type="audio/mp3"> -->
@@ -190,7 +217,17 @@
     <div class="item html" id="idimg">
         <!-- <img src="<?php echo $GLOBALS['BASE_URL'] ?>publico/img/level_1/P1.gif" alt="this slowpoke moves"  width="250" id="idimg"/> -->
     </div>
+    <div class="item html" id="cronometro" style="background: #a2494963;border-radius: 100px;margin-left: 20px;">
+        <h2>0</h2>
+        <svg width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+            <g>
+                <title>Layer 1</title>
+                <circle id="circle" class="circle_animation" r="69.85699" cy="81" cx="81" stroke-width="8" stroke="#6fdb6f" fill="none" />
+            </g>
+        </svg>
+    </div>
 </div>
+
 <div id="vidas">
 </div>
 <div id="medio">
@@ -368,7 +405,7 @@
             loopDivs(result.answer);
             //letras_respuestas.splice(index, 1);
             // medio.appendChild(div);
-        } else if(result.tipoPregunta == 3){
+        } else if (result.tipoPregunta == 3) {
             const question = document.querySelector('#example_write');
             const contenedor = document.querySelector('.contenedor');
             const medio = document.querySelector('#medio');
@@ -377,14 +414,14 @@
             div.innerHTML = ("<h3> Escribe tu respuesta </h3>")
             write_answer(result);
             medio.appendChild(div);
-        }else{
-            
+        } else {
+
         }
 
     }
 
     function setVidas() {
-        if (viditasPerdidas<=3) {
+        if (viditasPerdidas <= 3) {
             const vidas = document.querySelector('#vidas')
             while (vidas.firstChild) {
                 vidas.removeChild(vidas.firstChild);
@@ -399,7 +436,7 @@
                 x.textContent = 'X'
                 vidas.appendChild(x)
             }
-        }else{
+        } else {
             ShowModal(false)
         }
     }
@@ -454,9 +491,9 @@
         const writing = document.createElement('input');
         document.getElementById('writing_container').appendChild(writing);
         writing.className = "form-control answer_writing";
-        writing.setAttribute('placeholder','Ingresar respuesta')
+        writing.setAttribute('placeholder', 'Ingresar respuesta')
         // writing.classList.add('form-control answer_writing');
-    
+
         condition_text(result2);
     }
     var cadena = "";
@@ -687,54 +724,27 @@
         });
     };
     local();
-    /* letras__contenedor.addEventListener('dragstart', e => {
 
-        e.dataTransfer.setData('id', e.target.id)
-    })
-    medio.addEventListener('dragover', e => {
-        e.preventDefault();
-        e.target.classList.add('hover');
-    })
-    medio.addEventListener('dragleave', e => {
-        e.target.classList.remove('hover');
-    })
-    medio.addEventListener('drop', e => {
-        const id = e.dataTransfer.getData('id')
-        e.target.classList.remove('hover');
-        if (!e.target.textContent) {
-            e.target.appendChild(document.getElementById(id))
-            terminado--
-        }
-        if (terminado === 0) {
-            let contenedor = document.getElementsByClassName('placeholder');
-            let answord = "";
-            for (let i = 0; i < contenedor.length; i++) {
-                const element = contenedor[i];
-                answord += element.textContent
-            }
-
-            ShowModal(answord == "distancia")
-
-        }
-
-    }) */
     setTimeout(function() {
 
         var time = 30; /* how long the timer will run (seconds) */
         var initialOffset = '440';
-        var i = 30
+        var i = 1
 
         /* Need initial run as interval hasn't yet occured... */
         $('.circle_animation').css('stroke-dashoffset', initialOffset - (1 * (initialOffset / time)));
 
         var interval = setInterval(function() {
             $('h2').text(i);
-            if (i == 0) {
+            if (i == 25) {
+                $('#cronometro').addClass("blob")
+            }
+            if (i == time) {
                 clearInterval(interval);
                 return;
             }
             $('.circle_animation').css('stroke-dashoffset', initialOffset - ((i + 1) * (initialOffset / time)));
-            i--;
+            i++;
         }, 1000);
 
     }, 0)

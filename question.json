@@ -284,6 +284,21 @@
                 }
             ],
             "tipoPregunta": "2"
+        }, {
+            "id": 9,
+            "question": "Indique si la siguiente expresión es verdadera o falsa: 'En un movimiento armónico simple, la aceleración es nula en la posición de equilibrio'",
+            "imagen": "publico/img/level_2/P9.gif",
+            "img": "publico/img/level_2/P9-ques.png",
+            "answer": [{
+                    "option": "Verdadero",
+                    "iscorrect": true
+                },
+                {
+                    "option": "Falso",
+                    "iscorrect": false
+                }
+            ],
+            "tipoPregunta": "2"
         }
     ],
     "Dificil": [{
